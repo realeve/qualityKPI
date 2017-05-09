@@ -1,0 +1,314 @@
+[{
+    "name": "数管",
+    "value": 0,
+    "detail": [{
+      "name": "吊晾",
+      "value": 0
+    }, {
+      "name": "过数",
+      "value": 1,
+      "proc": [{
+        "name": "凹印",
+        "value": 0
+      }, {
+        "name": "涂胶",
+        "value": 1
+      }, {
+        "name": "无号",
+        "value": 2
+      }, {
+        "name": "号票",
+        "value": 3
+      }]
+    }, {
+      "name": "封包",
+      "value": 2
+    }, {
+      "name": "外协",
+      "value": 3,
+      "proc": [{
+        "name": "凹印",
+        "value": 0
+      }, {
+        "name": "涂胶",
+        "value": 1
+      }, {
+        "name": "装订",
+        "value": 2
+      }, {
+        "name": "烫金",
+        "value": 3
+      }, {
+        "name": "上光",
+        "value": 4
+      }]
+    }]
+  }, {
+    "name": "印前工序",
+    "value": 1,
+    "detail": [{
+      "name": "胶印",
+      "value": 0,
+      "proc": [{
+        "name": "一印",
+        "value": 0
+      }, {
+        "name": "二印",
+        "value": 1
+      }, {
+        "name": "三印",
+        "value": 2
+      }, {
+        "name": "四印",
+        "value": 3
+      }, {
+        "name": "五印",
+        "value": 4
+      }]
+    }, {
+      "name": "丝印",
+      "value": 1,
+      "proc": [{
+        "name": "一印",
+        "value": 0
+      }, {
+        "name": "二印",
+        "value": 1
+      }, {
+        "name": "三印",
+        "value": 2
+      }, {
+        "name": "四印",
+        "value": 3
+      }, {
+        "name": "五印",
+        "value": 4
+      }]
+    }, {
+      "name": "柔印",
+      "value": 2
+    }, {
+      "name": "宫腰机",
+      "value": 3
+    }, {
+      "name": "赋码",
+      "value": 4,
+      "times": true,
+      "placeholder":"请输入次数(1-5)",
+      "proc": [{
+        "name": "印码",
+        "value": 0
+      }, {
+        "name": "喷码",
+        "value": 1
+      }, {
+        "name": "施乐打码",
+        "value": 2
+      }, {
+        "name": "奥西打码",
+        "value": 3
+      }]
+    }, {
+      "name": "机检",
+      "value": 5,
+      "proc": [{
+        "name": "大张离线",
+        "value": 0
+      }, {
+        "name": "证照品检",
+        "value": 1
+      }, {
+        "name": "药盒品检",
+        "value": 2
+      }, {
+        "name": "卷筒品检",
+        "value": 3
+      }]
+    }, {
+      "name": "卷筒折页",
+      "value": 6
+    }, {
+      "name": "模切",
+      "value": 7,
+      "proc": [{
+        "name": "平张模切",
+        "value": 0
+      }, {
+        "name": "卷筒模切",
+        "value": 1
+      }]
+    }, {
+      "name": "选标",
+      "value": 8
+    }, {
+      "name": "分切",
+      "value": 9
+    }, {
+      "name": "烫金/凹凸",
+      "value": 10,
+      "times": true,
+      "placeholder":"请输入次数(1-5)",
+      "proc": [{
+        "name": "自动",
+        "value": 0
+      }, {
+        "name": "手摆",
+        "value": 1
+      }]
+    }, {
+      "name": "粘盒",
+      "value": 11
+    }]
+  },
+  {
+    "name": "印后工序",
+    "value": 2,
+    "detail": [{
+      "name": "裁切",
+      "value": 0,
+      "proc": [{
+        "name": "裁白纸",
+        "value": 0
+      }, {
+        "name": "一裁",
+        "value": 1
+      }, {
+        "name": "二裁",
+        "value": 2
+      }, {
+        "name": "三裁",
+        "value": 3
+      }, {
+        "name": "裁成品",
+        "value": 4
+      }]
+    }, {
+      "name": "白票检验(人工)",
+      "value": 1,
+      "times": true,
+      "placeholder":"请输入次数(1-3)",
+      "proc": [{
+        "name": "拉查白票",
+        "value": 0
+      }, {
+        "name": "拉查荧光",
+        "value": 1
+      }, {
+        "name": "溜查荧光",
+        "value": 2
+      }]
+    }, {
+      "name": "号票/成品检验(人工)",
+      "value": 2,
+      "proc": [{
+        "name": "拉查号票",
+        "value": 0
+      }, {
+        "name": "拉查成品",
+        "value": 1
+      }, {
+        "name": "溜查",
+        "value": 2
+      }]
+    }, {
+      "name": "装订线",
+      "value": 3,
+      "proc": [{
+        "name": "自动配页",
+        "value": 0
+      }, {
+        "name": "手工配页",
+        "value": 1
+      }, {
+        "name": "缝线",
+        "value": 2
+      }, {
+        "name": "裱糊",
+        "value": 3
+      }, {
+        "name": "折背",
+        "value": 4
+      }, {
+        "name": "压平",
+        "value": 5
+      }, {
+        "name": "烫磁条",
+        "value": 6
+      }, {
+        "name": "圆角",
+        "value": 7
+      }]
+    }, {
+      "name": "检封辅助",
+      "value": 4,
+      "proc": [{
+        "name": "过数",
+        "value": 0
+      }, {
+        "name": "手工折页",
+        "value": 1
+      }, {
+        "name": "缠条",
+        "value": 2
+      }, {
+        "name": "刷胶分本",
+        "value": 3
+      }, {
+        "name": "排废",
+        "value": 4
+      }]
+    }, {
+      "name": "封装",
+      "value": 5,
+      "proc": [{
+        "name": "自动封包",
+        "value": 0
+      }, {
+        "name": "手工封包",
+        "value": 1
+      }, {
+        "name": "装箱",
+        "value": 2
+      }]
+    }]
+  },
+  {
+    "name": "付出",
+    "value": 3,
+    "detail": [{
+      "name": "成品入库",
+      "value": 0
+    }, {
+      "name": "其它",
+      "value": 1,
+      "proc": [{
+        "name": "赠品",
+        "value": 0
+      }, {
+        "name": "样票",
+        "value": 1
+      }, {
+        "name": "白票",
+        "value": 2
+      }]
+    }, {
+      "name": "废品",
+      "value": 2,
+      "proc": [{
+        "name": "数管",
+        "value": 0
+      }, {
+        "name": "检封",
+        "value": 1
+      }]
+    }]
+  },
+  {
+    "name": "期末库存",
+    "value": 4,
+    "detail": [{
+      "name": "成品",
+      "value": 0
+    }]
+  }
+]

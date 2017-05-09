@@ -1,0 +1,7 @@
+ #canvasWrapper {
+     background-color: #050510
+ }
+ 
+ ::-webkit-scrollbar {
+     display: none;
+ }
