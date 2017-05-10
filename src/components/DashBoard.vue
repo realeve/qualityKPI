@@ -10,7 +10,7 @@
 </style>
 <script>
   import axios from 'axios';
-  import util from '../common/common';
+  import util from '../config/common';
   
   export default {
     data(){

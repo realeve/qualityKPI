@@ -3,7 +3,7 @@
     <div class="content">
       <div class="slogan">
         <h1>质量管理KPI评价体系</h1>
-        <h3>用数据说话</h3>
+        <h3>数据会说话</h3>
       </div>
     </div>
   </div>
