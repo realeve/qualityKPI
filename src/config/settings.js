@@ -16,14 +16,15 @@ export default {
         rtxPush: host + '/datainterface/rtxpush',
         // 媒体列表
         print: {
-            goodRate: url + '256&M=3&cache=10',
-            openNum: '',
-            plate: '',
-            unchecked: '',
-            question: '',
-            risk: '',
-            qfj: '',
-            spc: '',
+            goodRate: url + '256&M=3',
+            openNum: url + '259&M=3',
+            plate: url + '464&M=3',
+            // 未检
+            unchecked:url + '465&M=3',
+            question: url + '466&M=3&cate=质量问题发布',
+            risk: url + '466&M=3&cate=风险隐患排查',
+            qfj: url + '467&M=3',
+            spc: url + '468&M=3'
         },
         paper: {
             goodRate: '',
