@@ -1,2 +1,1 @@
-﻿
-{"timing":"40.814ms","rows": 1,"cols": 1,"header":[{"title":"score"}],"data":[["2.5"]],"title":"BI_风险隐患排查得分","source":"数据来源:质量控制中心"}
+﻿{"timing":"47.179ms","rows": 2,"cols": 2,"header":[{"title":"状态"},{"title":"问题数量"}],"data":[["未完成","8"],["已完成","9"]],"title":"BI_质量问题发布","source":"数据来源:质量控制中心"}
