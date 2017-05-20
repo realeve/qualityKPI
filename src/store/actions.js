@@ -131,7 +131,104 @@ let actions = {
         store.dispatch('getQualityRisk');
         store.dispatch('getUncheckByQFJ');
         store.dispatch('getSPCScore');
-    }
+    },
+    // 纸机好品率
+    getPGoodRate(store) {
+        function splitCutData(data) {
+            let goodRate = [],
+                cGoodRate = [];
+            data.data.forEach(item => {
+                if (item[1] == '纸机') {
+                    goodRate.push(item);
+                } else {
+                    cGoodRate.push(item);
+                }
+            })
+            store.state.paper.goodRate = goodRate;
+            store.state.paper.cGoodRate = cGoodRate;
+        }
+
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/paperGoodrate_id123.json');
+            splitCutData(data);
+            return;
+        }
+        axios.get(api.paper.goodRate, {
+            params: util.getDateRange()
+        }).then(res => {
+            splitCutData(res.data);
+        })
+    },
+    // 成品率
+    // getWellRate() {
+
+    // },
+    // 封包率
+    getPkgRate(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/packageRate_id116.json');
+            store.state.paper.pkgRate = data.data;
+            return;
+        }
+        axios.get(api.paper.goodRate, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.paper.pkgRate = res.data.data;
+        });
+    },
+    // 纸机、切纸机好品率相差过大
+    getAbnormalNum(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/paperAbnormal_id469.json');
+            store.state.paper.abnormal = data.data;
+            return;
+        }
+        axios.get(api.paper.goodRate, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.paper.abnormal = res.data.data;
+        });
+    },
+    // 质量问题发布
+    getPQualityQuestion(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/paperQuestion_id470.json');
+            store.state.paper.question = data.data;
+            return;
+        }
+        axios.get(api.paper.question, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.paper.question = res.data.data;
+        })
+    },
+    // 过程质量控制水平
+    getPSPCScore(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/paperSPC_id60.json');
+            store.state.paper.spc = data.data;
+            return;
+        }
+        axios.get(api.paper.spc, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.paper.spc = res.data.data;
+        })
+    },
+    paperScore(store) {
+        let sum = 0;
+        Object.keys(kpi.paper).forEach(item => sum += kpi.paper[item].score);
+        let curScore = store.getters.pGoodRateScore.score + store.getters.cGoodRateScore.score + store.getters.pkgRateScore.score + store.getters.rePkgRateScore
+            .score + store.getters.abnormalScore.score + store.getters.pQuestionScore.score + store.getters.PSPCScore.score;
+        store.state.score.paper = (curScore / sum * 100).toFixed(2);
+    },
+    initPaper(store) {
+        store.dispatch('getPGoodRate');
+        store.dispatch('getPkgRate');
+        store.dispatch('getAbnormalNum');
+        store.dispatch('getPQualityQuestion');
+        store.dispatch('getPSPCScore');
+    },
 }
 
 export default actions

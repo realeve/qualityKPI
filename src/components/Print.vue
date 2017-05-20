@@ -187,14 +187,10 @@
 <script>
   import util from '../config/common';
   import {
-    mapState,
     mapGetters
   } from 'vuex';
 
   export default {
-    data() {
-      return {}
-    },
     computed: {
       column() {
         return {

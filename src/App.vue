@@ -24,19 +24,25 @@
       IFooter
     },
     computed: {
-      score() {
+      print() {
         this.printScore();
         return this.$store.state.score.print;
+      },
+      paper() {
+        this.paperScore();
+        return this.$store.state.score.paper;
       }
     },
     methods: {
-      ...mapActions(['initPrint', 'printScore'])
+      ...mapActions(['initPrint', 'initPaper', 'printScore', 'paperScore'])
     },
     watch: {
-      score() {}
+      print() {},
+      paper() {}
     },
     created() {
       this.initPrint();
+      this.initPaper();
     }
   }
 

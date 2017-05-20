@@ -129,6 +129,71 @@ let getters = {
             detail
         };
     },
+    pGoodRateScore(state) {
+        return util.calcScoreDetail({
+            dataNum: kpi.paper.goodRate,
+            valIdx: 4,
+            numArr: state.paper.goodRate,
+            type: kpi.scoreType.DESC
+        });
+    },
+    cGoodRateScore(state) {
+        return util.calcScoreDetail({
+            dataNum: kpi.paper.cGoodRate,
+            valIdx: 4,
+            numArr: state.paper.cGoodRate,
+            type: kpi.scoreType.DESC
+        });
+    },
+    pkgRateScore(state) {
+        return util.calcScoreDetail({
+            dataNum: kpi.paper.pkgRate,
+            valIdx: 3,
+            numArr: state.paper.pkgRate,
+            type: kpi.scoreType.DESC
+        });
+    },
+    rePkgRateScore(state) {
+        return util.calcScoreDetail({
+            dataNum: kpi.paper.rePkgRate,
+            valIdx: 6,
+            numArr: state.paper.pkgRate,
+            type: kpi.scoreType.ASC
+        });
+    },
+    abnormalScore(state) {
+        return util.calcScoreDetail({
+            dataNum: kpi.paper.abnormal,
+            valIdx: 1,
+            numArr: state.paper.abnormal,
+            type: kpi.scoreType.ASC
+        });
+    },
+    pQuestionScore(state) {
+        let score = 0;
+        let detail = state.paper.question.map(item => {
+            score += ((item[0] == '已完成') ? 0.5 : 1) * item[1];
+            return {
+                prod: item[0],
+                value: item[1]
+            };
+        })
+        score = (1 - score / kpi.paper.question.subScore) * 100;
+        return {
+            score: parseFloat((score / 100 * kpi.paper.question.score).toFixed(2)),
+            percent: parseFloat(score.toFixed(2)),
+            color: util.getLevelColor(score),
+            detail
+        };
+    },
+    PSPCScore(state) {
+        return util.calcScoreDetail({
+            dataNum: kpi.paper.spc,
+            valIdx: 1,
+            numArr: state.paper.spc,
+            type: kpi.scoreType.DESC
+        });
+    }
 }
 
 export default getters
