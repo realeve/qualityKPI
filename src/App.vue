@@ -50,9 +50,9 @@
 
 <style scoped lang="less">
   @import "assets/css/app.css";
-  .layout {
-    border: 1px solid #d7dde4;
-    background: #f5f7f9;
-  }
+  // .layout {
+  //   border: 1px solid #d7dde4;
+  //   background: #f5f7f9;
+  // }
 
 </style>

@@ -9,6 +9,11 @@ let api = settings.api
 let actions = {
     // 好品率
     getGoodRate(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/goodrate.json')
+            store.state.print.goodRate = data.data
+            return
+        }
         axios.get(api.print.goodRate, {
             params: util.getDateRange()
         }).then(res => {
@@ -16,6 +21,11 @@ let actions = {
         })
     }, // 开包量
     getOpenNum(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/openNum.json')
+            store.state.print.openNum = data.data
+            return
+        }
         axios.get(api.print.openNum, {
             params: util.getDateRange()
         }).then(res => {

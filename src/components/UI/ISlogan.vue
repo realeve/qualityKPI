@@ -2,7 +2,7 @@
   <div class="warper first-page">
     <div class="content">
       <div class="slogan">
-        <h1>Business Intelligence</h1>
+        <h1>质量综合评价</h1>
         <h3>数据会说话</h3>
         <h3>印刷工序：{{score.print}} 分,纸张工序：{{score.paper}} 分</h3>
       </div>

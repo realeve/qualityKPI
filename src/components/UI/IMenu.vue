@@ -1,7 +1,7 @@
 <template>
   <div>
     <IAffix @on-change="changeTheme">
-      <Menu mode="horizontal" :theme="theme.name" active-name="1" @on-select="getMenu">
+      <Menu mode="horizontal" :theme="theme.name" :active-name="activeName" @on-select="getMenu">
         <template v-for="item in menuList">
           <Submenu v-if="item.hasSubMenu" :name="item.name">
             <template slot="title">
@@ -28,6 +28,7 @@
 </template>
 <script>
   import IAffix from '@/components/UI/IAffix';
+  import util from '../../config/common';
 
   export default {
     components: {
@@ -66,13 +67,20 @@
         theme: {
           flag: true,
           name: 'light'
-        },
-        bread: {
-          path: '/print',
-          name: '印钞工序',
-          path2: '/stat',
-          name2: '概述'
         }
+      }
+    },
+    computed:{
+      bread:{
+        get(){
+          return this.$store.state.bread;
+        },
+        set(val){
+          this.$store.commit('setBread',val);
+        }
+      },
+      activeName(){
+        return this.$store.state.activeName;
       }
     },
     methods: {
@@ -82,56 +90,7 @@
       },
       getMenu(path) {
         this.$router.push(path);
-        switch (path) {
-          case '/print/':
-            this.bread = {
-              path: '/print',
-              name: '印钞工序',
-              path2: path,
-              name2: '概述'
-            }
-            break;
-          case '/print/oi':
-            this.bread = {
-              path: '/print',
-              name: '印钞工序',
-              path2: path,
-              name2: '胶凹'
-            }
-            break;
-          case '/print/code':
-            this.bread = {
-              path: '/print',
-              name: '印钞工序',
-              path2: path,
-              name2: '印码'
-            }
-            break;
-          case '/print/pkg':
-            this.bread = {
-              path: '/print',
-              name: '印钞工序',
-              path2: path,
-              name2: '检封'
-            }
-            break;
-          case '/paper':
-            this.bread = {
-              path,
-              name: '钞纸工序',
-              path2: '',
-              name2: ''
-            }
-            break;
-          case '/dashboard':
-            this.bread = {
-              path,
-              name: '控制台',
-              path2: '',
-              name2: ''
-            }
-            break;
-        }
+        this.bread = util.getBread(path);
       }
     }
   }

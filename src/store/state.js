@@ -19,9 +19,17 @@ const state = {
         abnormal: []
     },
     score: {
-        print: '',
-        paper: ''
+        print: 0,
+        paper: 0
     },
+    bread: {
+        path: '/print',
+        name: '印钞工序',
+        path2: '/stat',
+        name2: '概述'
+    },
+    // 当前激活菜单
+    activeName: 1
 }
 
 export default state

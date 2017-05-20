@@ -9,8 +9,9 @@
 <style scoped>
   .layout-copy {
     text-align: center;
-    padding: 10px 0 20px;
-    color: #9ea7b4;
+    padding: 20px 0;
+    color: #aeb7b4;
+    background: #050508;
   }
 
 </style>

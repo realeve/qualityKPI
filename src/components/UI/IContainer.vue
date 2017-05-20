@@ -1,20 +1,39 @@
 <template>
-    <div class="layout-content">
+  <div class="layout-content" :class="{chartpage}">
+    <keep-alive>
       <router-view></router-view>
-    </div>
+    </keep-alive>
+  </div>
 </template>
 <style scoped>
   .layout-content {
-    min-height: 300px;
+    min-height: 500px;
     margin: 15px;
     overflow: hidden;
     background: #fff;
     border-radius: 4px;
     padding: 15px;
   }
+
+  .chartpage {
+    background: #050508;
+    background: url('../../assets/img/chartbg.jpg') #050508 center center no-repeat;
+    background-size: cover;
+    margin: 0;
+    margin-top: 15px;
+    border-radius: 0;
+    color: #e2e2e2;
+    min-height: 1200px;
+  }
+
 </style>
 <script>
   export default {
+    computed: {
+      chartpage() {
+        return this.$route.path == '/dashboard';
+      }
+    }
   }
 
 </script>

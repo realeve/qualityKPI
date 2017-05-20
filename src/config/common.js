@@ -205,6 +205,61 @@ function getColumnList(item, setLevel = true) {
     return columns;
 }
 
+function getBread(path) {
+    let bread;
+    switch (path) {
+        case '/print/':
+            bread = {
+                path: '/print',
+                name: '印钞工序',
+                path2: path,
+                name2: '概述'
+            }
+            break;
+        case '/print/oi':
+            bread = {
+                path: '/print',
+                name: '印钞工序',
+                path2: path,
+                name2: '胶凹'
+            }
+            break;
+        case '/print/code':
+            bread = {
+                path: '/print',
+                name: '印钞工序',
+                path2: path,
+                name2: '印码'
+            }
+            break;
+        case '/print/pkg':
+            bread = {
+                path: '/print',
+                name: '印钞工序',
+                path2: path,
+                name2: '检封'
+            }
+            break;
+        case '/paper':
+            bread = {
+                path,
+                name: '钞纸工序',
+                path2: '',
+                name2: ''
+            }
+            break;
+        case '/dashboard':
+            bread = {
+                path,
+                name: '控制台',
+                path2: '',
+                name2: ''
+            }
+            break;
+    }
+    return bread;
+}
+
 export default {
     getParameter,
     getNow,
@@ -213,5 +268,6 @@ export default {
     getScoreLevel,
     getLevelColor,
     calcScoreDetail,
-    getColumnList
+    getColumnList,
+    getBread
 }
