@@ -185,16 +185,10 @@
 
 </style>
 <script>
-  import axios from 'axios';
   import util from '../config/common';
-  import settings from '../config/settings';
-  import kpi from '../config/scoreKPI';
-  import _ from "lodash";
-
-  let api = settings.api;
-
   import {
-    mapMutations
+    mapState,
+    mapGetters
   } from 'vuex';
 
   export default {
@@ -218,201 +212,20 @@
           procRate: util.getColumnList(['品种', '大万数'], false),
         };
       },
-      goodRate() {
-        return this.$store.state.print.goodRate;
-      },
-      openNum() {
-        return this.$store.state.print.openNum;
-      },
-      plateNum() {
-        return this.$store.state.print.plateNum;
-      },
-      uncheckedNum() {
-        return this.$store.state.print.uncheckedNum;
-      },
-      question() {
-        return this.$store.state.print.question;
-      },
-      risk() {
-        return this.$store.state.print.risk;
-      },
-      qfj() {
-        return this.$store.state.print.qfj;
-      },
-      spc() {
-        return this.$store.state.print.spc;
-      },
-      procRate() {
-        return this.$store.state.print.procRate;
-      },
-      goodRateScore() {
-        return util.calcScoreDetail({
-          dataNum: kpi.print.goodRate,
-          valIdx: 2,
-          numArr: this.goodRate,
-          type: kpi.scoreType.DESC
-        });
-      },
-      openNumScore() {
-        return util.calcScoreDetail({
-          dataNum: kpi.print.openNum,
-          valIdx: 4,
-          numArr: this.openNum,
-          type: kpi.scoreType.ASC
-        });
-      },
-      plateScore() {
-        let numArr = this.plateNum.filter(item => item[0] != '钢制金属版');
-        return util.calcScoreDetail({
-          dataNum: kpi.print.plateNum,
-          valIdx: 1,
-          numArr,
-          type: kpi.scoreType.DESC
-        });
-      },
-      machineWeak() {
-        return util.calcScoreDetail({
-          dataNum: kpi.print.machineWeak,
-          valIdx: 3,
-          numArr: this.openNum,
-          type: kpi.scoreType.ASC
-        });
-      },
-      fakeRate() {
-        return util.calcScoreDetail({
-          dataNum: kpi.print.fakeRate,
-          valIdx: 7,
-          numArr: this.openNum,
-          type: kpi.scoreType.ASC
-        });
-      },
-      // 未检
-      uncheckedScore() {
-        return util.calcScoreDetail({
-          dataNum: kpi.print.uncheckedNum,
-          valIdx: 1,
-          numArr: this.uncheckedNum,
-          type: kpi.scoreType.ASC
-        });
-      },
-      questionScore() {
-        let score = 0;
-        let detail = this.question.map(item => {
-          score += ((item[0] == '已完成') ? 0.5 : 1) * item[1];
-          return {
-            prod: item[0],
-            value: item[1]
-          };
-        })
-        score = (1 - score / kpi.print.question.subScore) * 100;
-        return {
-          score: parseFloat((score / 100 * kpi.print.question.score).toFixed(2)),
-          percent: parseFloat(score.toFixed(2)),
-          color: util.getLevelColor(score),
-          detail
-        };
-      },
-      riskScore() {
-        let score = 0;
-        let detail = this.risk.map(item => {
-          score += ((item[0] == '已完成') ? 0.5 : 1) * item[1];
-          return {
-            prod: item[0],
-            value: item[1]
-          };
-        })
-        score = (1 - score / kpi.print.risk.subScore) * 100;
-        return {
-          score: parseFloat((score / 100 * kpi.print.risk.score).toFixed(2)),
-          percent: parseFloat(score.toFixed(2)),
-          color: util.getLevelColor(score),
-          detail
-        };
-      },
-      qfjScore() {
-        return util.calcScoreDetail({
-          dataNum: kpi.print.qfj,
-          valIdx: 1,
-          numArr: this.qfj,
-          type: kpi.scoreType.ASC
-        });
-      },
-      SPCScore() {
-        return util.calcScoreDetail({
-          dataNum: kpi.print.spc,
-          valIdx: 1,
-          numArr: this.spc,
-          type: kpi.scoreType.DESC
-        });
-      },
-      subScore() {
-        let sum = 0;
-        Object.keys(kpi.print).forEach(item => sum += kpi.print[item].score);
-
-        let curScore = this.goodRateScore.score + this.openNumScore.score + this.plateScore.score + this.machineWeak
-          .score + this.fakeRate.score + this.uncheckedScore.score + this.questionScore.score + this.riskScore.score +
-          this.qfjScore.score + this.SPCScore.score + this.procRateScore.score;
-        return (curScore / sum * 100).toFixed(2);
-      },
-      printScore: {
-        get() {
-          return this.$store.state.score.print;
-        },
-        set(val) {
-          // methods中提交 mapMutations后，无需以下形式，直接函数映射即可.
-          // this.$store.commit('setPrintScore', val);
-          this.setPrintScore(val);
-        }
-      },
-      procRateScore() {
-        let sum = 0;
-        let sub = 0;
-        let detail = this.procRate.map(item => {
-          sum += parseInt(item[1]);
-          if (item[0] == '裁封') {
-            sub = item[1];
-          }
-          return {
-            prod: item[0],
-            value: item[1]
-          };
-        })
-
-        let percent = parseFloat((sub / sum) * 100).toFixed(2);
-        let score = parseFloat((kpi.print.procRate.score * percent / 100).toFixed(2));
-        return {
-          score,
-          percent,
-          color: util.getLevelColor(percent),
-          detail
-        };
-      }
+      ...mapGetters([
+        'goodRateScore',
+        'openNumScore',
+        'plateScore',
+        'machineWeak',
+        'fakeRate',
+        'uncheckedScore',
+        'questionScore',
+        'riskScore',
+        'qfjScore',
+        'SPCScore',
+        'procRateScore'
+      ])
     },
-    watch: {
-      subScore(val) {
-        this.printScore = val;
-      }
-    },
-    methods: {
-      ...mapMutations([
-       'setPrintScore'
-      ]),
-
-      init() {
-        // this.getGoodRate();
-        // this.getOpenNum();
-        // this.getPlatePrintNum();
-        // this.getNoCheckNum();
-        // this.getQualityQuestion();
-        // this.getQualityRisk();
-        // this.getUncheckByQFJ();
-        // this.getSPCScore();
-        // this.getProcRate();
-      }
-    },
-    created() {
-      this.init();
-    }
   }
 
 </script>

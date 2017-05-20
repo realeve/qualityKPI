@@ -23,22 +23,20 @@
       IContainer,
       IFooter
     },
-    methods: {
-      ...mapActions(['getGoodRate','getOpenNum','getPlatePrintNum','getNoCheckNum','getQualityQuestion','getQualityRisk','getUncheckByQFJ','getSPCScore','getProcRate']),
-      init() {
-        this.getGoodRate();
-        this.getOpenNum();
-        this.getPlatePrintNum();
-        this.getNoCheckNum();
-        this.getProcRate();
-        this.getQualityQuestion();
-        this.getQualityRisk();
-        this.getUncheckByQFJ();
-        this.getSPCScore();
+    computed: {
+      score() {
+        this.printScore();
+        return this.$store.state.score.print;
       }
     },
+    methods: {
+      ...mapActions(['initPrint', 'printScore'])
+    },
+    watch: {
+      score() {}
+    },
     created() {
-      this.init();
+      this.initPrint();
     }
   }
 
