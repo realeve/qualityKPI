@@ -199,17 +199,7 @@
 
   export default {
     data() {
-      return {
-        goodRate: [],
-        openNum: [],
-        plateNum: [],
-        uncheckedNum: [],
-        question: [],
-        risk: [],
-        qfj: [],
-        spc: [],
-        procRate: []
-      }
+      return {}
     },
     computed: {
       column() {
@@ -228,6 +218,33 @@
           procRate: util.getColumnList(['品种', '大万数'], false),
         };
       },
+      goodRate() {
+        return this.$store.state.print.goodRate;
+      },
+      openNum() {
+        return this.$store.state.print.openNum;
+      },
+      plateNum() {
+        return this.$store.state.print.plateNum;
+      },
+      uncheckedNum() {
+        return this.$store.state.print.uncheckedNum;
+      },
+      question() {
+        return this.$store.state.print.question;
+      },
+      risk() {
+        return this.$store.state.print.risk;
+      },
+      qfj() {
+        return this.$store.state.print.qfj;
+      },
+      spc() {
+        return this.$store.state.print.spc;
+      },
+      procRate() {
+        return this.$store.state.print.procRate;
+      },
       goodRateScore() {
         return util.calcScoreDetail({
           dataNum: kpi.print.goodRate,
@@ -245,11 +262,11 @@
         });
       },
       plateScore() {
-        this.plateNum = this.plateNum.filter(item => item[0] != '钢制金属版');
+        let numArr = this.plateNum.filter(item => item[0] != '钢制金属版');
         return util.calcScoreDetail({
           dataNum: kpi.print.plateNum,
           valIdx: 1,
-          numArr: this.plateNum,
+          numArr,
           type: kpi.scoreType.DESC
         });
       },
@@ -378,126 +395,19 @@
     },
     methods: {
       ...mapMutations([
-        // 'setPrintGoodRate','setOpenNum','setPlateNum','setUncheckedNum','setQuestion','setRisk','setQfj','setSPC',
-        'setPrintScore'
+       'setPrintScore'
       ]),
-      // 好品率
-      getGoodRate() {
-        axios.get(api.print.goodRate, {
-          params: util.getDateRange()
-        }).then(res => {
-          this.goodRate = res.data.data;
-        });
-      },
-      // 开包量
-      getOpenNum() {
-        axios.get(api.print.openNum, {
-          params: util.getDateRange()
-        }).then(res => {
-          let data = _.sortBy(res.data.data, item => item[0]);
-          this.openNum = data;
-        })
-      },
-      // 耐印率
-      getPlatePrintNum() {
-        if (process.env.NODE_ENV == 'development') {
-          let data = require('../config/api/plate.json');
-          this.plateNum = data.data;
-          return;
-        }
-        axios.get(api.print.plate, {
-          params: util.getDateRange()
-        }).then(res => {
-          this.plateNum = res.data.data;
-        })
-      },
-      // 未检
-      getNoCheckNum() {
-        if (process.env.NODE_ENV == 'development') {
-          let data = require('../config/api/nochecked.json');
-          this.uncheckedNum = data.data;
-          return;
-        }
-        axios.get(api.print.unchecked, {
-          params: util.getDateRange()
-        }).then(res => {
-          this.uncheckedNum = res.data.data;
-        })
-      },
-      // 质量问题发布
-      getQualityQuestion() {
-        if (process.env.NODE_ENV == 'development') {
-          let data = require('../config/api/question.json');
-          this.question = data.data;
-          return;
-        }
-        axios.get(api.print.question, {
-          params: util.getDateRange()
-        }).then(res => {
-          this.question = res.data.data;
-        })
-      },
-      // 风险隐患排查
-      getQualityRisk() {
-        if (process.env.NODE_ENV == 'development') {
-          let data = require('../config/api/risk.json');
-          this.risk = data.data;
-          return;
-        }
-        axios.get(api.print.risk, {
-          params: util.getDateRange()
-        }).then(res => {
-          this.risk = res.data.data;
-        })
-      },
-      // 清分拒钞
-      getUncheckByQFJ() {
-        if (process.env.NODE_ENV == 'development') {
-          let data = require('../config/api/qfj.json');
-          this.qfj = data.data;
-          return;
-        }
-        axios.get(api.print.qfj, {
-          params: util.getDateRange()
-        }).then(res => {
-          this.qfj = res.data.data;
-        })
-      },
-      // 过程质量控制水平
-      getSPCScore() {
-        if (process.env.NODE_ENV == 'development') {
-          let data = require('../config/api/spc.json');
-          this.spc = data.data;
-          return;
-        }
-        axios.get(api.print.spc, {
-          params: util.getDateRange()
-        }).then(res => {
-          this.spc = res.data.data;
-        })
-      },
-      getProcRate() {
-        if (process.env.NODE_ENV == 'development') {
-          let data = require('../config/api/mhProc.json');
-          this.procRate = data.data;
-          return;
-        }
-        axios.get(api.print.procRate, {
-          params: util.getDateRange()
-        }).then(res => {
-          this.procRate = res.data.data;
-        })
-      },
+
       init() {
-        this.getGoodRate();
-        this.getOpenNum();
-        this.getPlatePrintNum();
-        this.getNoCheckNum();
-        this.getQualityQuestion();
-        this.getQualityRisk();
-        this.getUncheckByQFJ();
-        this.getSPCScore();
-        this.getProcRate();
+        // this.getGoodRate();
+        // this.getOpenNum();
+        // this.getPlatePrintNum();
+        // this.getNoCheckNum();
+        // this.getQualityQuestion();
+        // this.getQualityRisk();
+        // this.getUncheckByQFJ();
+        // this.getSPCScore();
+        // this.getProcRate();
       }
     },
     created() {
