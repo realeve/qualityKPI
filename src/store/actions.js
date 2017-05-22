@@ -239,6 +239,18 @@ let actions = {
         store.dispatch('getPQualityQuestion');
         store.dispatch('getPSPCScore');
     },
+    getDashboardPrintGoodrate(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/dashboard_print_goodrate.json');
+            store.state.dashboard.print.goodrate = data.data;
+            return;
+        }
+        axios.get(api.dashboard.print.goodrate, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.dashboard.print.goodrate = res.data.data;
+        })
+    },
 }
 
 export default actions

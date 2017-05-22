@@ -35,6 +35,12 @@ export default {
             abnormalNum: url + '469&M=3',
             qestion: url + '470&M=3',
             spc: url + '60&M=3',
+        },
+        dashboard: {
+            print: {
+                // SELECT b.ProductName AS 品种, ProduceDate AS 日期, round(AVG(GoodRate), 2) AS 平均好品率 FROM MaHouData a INNER JOIN ProductData b ON a.ProductTypeID = b.ID WHERE ProduceDate between ? and ? GROUP BY ProduceDate, ProductName ORDER BY 1, 2
+                goodrate: url + '471&M=3',
+            }
         }
     },
     rtxInfo: rtx.rtxInfo

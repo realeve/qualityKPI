@@ -22,14 +22,21 @@ const state = {
         print: 0,
         paper: 0
     },
+
+    // 菜单共享数据
     bread: {
         path: '/print',
         name: '印钞工序',
         path2: '/stat',
         name2: '概述'
     },
-    // 当前激活菜单
-    activeName: 1
+    activeName: 1,
+
+    dashboard: {
+        print: {
+            goodrate: []
+        }
+    },
 }
 
 export default state
