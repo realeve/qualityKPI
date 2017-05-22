@@ -242,15 +242,83 @@ let actions = {
     getDashboardPrintGoodrate(store) {
         if (process.env.NODE_ENV == 'development') {
             let data = require('../config/api/dashboard_print_goodrate.json');
-            store.state.dashboard.print.goodrate = data.data;
+            store.state.dashboard.print.goodrate = data;
             return;
         }
         axios.get(api.dashboard.print.goodrate, {
             params: util.getDateRange()
         }).then(res => {
-            store.state.dashboard.print.goodrate = res.data.data;
+            store.state.dashboard.print.goodrate = res.data;
         })
     },
+    getDashboardPaperGoodrate(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/dashboard_paper_goodrate.json');
+            store.state.dashboard.paper.goodrate = data;
+            return;
+        }
+        axios.get(api.dashboard.paper.goodrate, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.dashboard.paper.goodrate = res.data;
+        })
+    },
+    getDashboardOpennum(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/dashboard_opennum.json');
+            store.state.dashboard.print.opennum = data;
+            return;
+        }
+        axios.get(api.dashboard.print.opennum, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.dashboard.print.opennum = res.data;
+        })
+    },
+    getDashboardAbnormal(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/dashboard_abnormal.json');
+            store.state.dashboard.paper.abnormal = data;
+            return;
+        }
+        axios.get(api.dashboard.paper.abnormal, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.dashboard.paper.abnormal = res.data;
+        })
+    },
+    getDashboardNocheck(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/dashboard_nocheck.json');
+            store.state.dashboard.print.nocheck = data;
+            return;
+        }
+        axios.get(api.dashboard.print.nocheck, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.dashboard.print.nocheck = res.data;
+        })
+    },
+    getDashboardPkgRate(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/dashboard_packageRate.json');
+            store.state.dashboard.paper.packagerate = data;
+            return;
+        }
+        axios.get(api.paper.goodRate, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.dashboard.paper.packagerate = res.data;
+        });
+    },
+    initDashboard(store){
+        store.dispatch('getDashboardPrintGoodrate');
+        store.dispatch('getDashboardPaperGoodrate');
+        store.dispatch('getDashboardOpennum');
+        store.dispatch('getDashboardAbnormal');
+        store.dispatch('getDashboardNocheck');
+        store.dispatch('getDashboardPkgRate');
+    }
 }
 
 export default actions

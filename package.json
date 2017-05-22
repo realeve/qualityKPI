@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.16.1",
     "echarts": "^3.5.4",
+    "echarts-liquidfill": "^1.0.5",
     "iview": "^2.0.0-rc.12",
     "lodash": "^4.17.4",
     "vue": "^2.2.6",

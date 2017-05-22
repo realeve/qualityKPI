@@ -23,7 +23,7 @@
     margin-top: 15px;
     border-radius: 0;
     color: #e2e2e2;
-    min-height: 1200px;
+    min-height: 600px;
   }
 
 </style>
