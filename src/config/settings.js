@@ -38,7 +38,7 @@ export default {
     },
     dashboard: {
       print: {
-        // SELECT b.ProductName AS 品种, ProduceDate AS 日期, round(AVG(GoodRate), 2) AS 平均好品率 FROM MaHouData a INNER JOIN ProductData b ON a.ProductTypeID = b.ID WHERE ProduceDate between ? and ? GROUP BY ProduceDate, ProductName ORDER BY 1, 2
+        // 	SELECT b.ProductName AS 品种, ProduceDate AS 日期, round(AVG(GoodRate), 2) AS 平均好品率,avg(errPicCount) 平均缺陷条数 FROM MaHouData a INNER JOIN ProductData b ON a.ProductTypeID = b.ID WHERE ProduceDate between ? and ? GROUP BY ProduceDate, ProductName ORDER BY 1, 2
         goodrate: url + '471&M=3',
         // SELECT a.producttype as 品种, CONVERT (VARCHAR,a.scandate,112)  as 日期,AVG(totalopennum) AS 开包量 FROM OCRData a WHERE CONVERT (VARCHAR,a.scandate,112) BETWEEN  ? and ? GROUP BY producttype, CONVERT (VARCHAR,a.scandate,112)
         opennum: url + '473&M=3',
