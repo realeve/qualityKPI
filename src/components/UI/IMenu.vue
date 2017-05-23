@@ -107,7 +107,7 @@
   }
 
   .ivu-menu-dark {
-    background: rgba(19, 17, 37, 0.92);    
+    background: rgba(36,36,62,.9); //rgba(19, 17, 37, 0.92);    
   }
   .ivu-menu-dark.ivu-menu-horizontal .ivu-menu-item, .ivu-menu-dark.ivu-menu-horizontal .ivu-menu-submenu {
     color:#ccc;

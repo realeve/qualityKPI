@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-content" :class="{chartpage}">
+  <div class="layout-content" :class="{chartpage}">   
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -16,9 +16,9 @@
   }
 
   .chartpage {
-    background: #050508;
-    background: url('../../assets/img/chartbg.jpg') #050508 center center no-repeat;
-    background-size: cover;
+    background: none;
+    /*background: url('../../assets/img/chartbg.jpg') #050508 center center no-repeat;
+    background-size: cover;*/
     margin: 0;
     margin-top: 15px;
     border-radius: 0;

@@ -11,7 +11,7 @@
     text-align: center;
     padding: 20px 0;
     color: #aeb7b4;
-    background: #050508;
+    /*background: #050508;*/
   }
 
 </style>

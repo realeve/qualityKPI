@@ -1,29 +1,33 @@
 <template>
-  <div class="content">
-    <div ref="main" class="chart-main"></div>
-    <Row>
-      <Col span="12">
-      <div ref="goodrate" class="chart"></div>
-      </Col>
-      <Col span="12">
-      <div ref="goodratePaper" class="chart"></div>
-      </Col>
+  <div>
+    <IFullPage/>
+    <div class="content">
+      <div ref="main" class="chart-main"></div>
+      <Row>
+        <Col span="12">
+        <div ref="goodrate" class="chart"></div>
+        </Col>
+        <Col span="12">
+        <div ref="goodratePaper" class="chart"></div>
+        </Col>
 
-      <Col span="12">
-      <div ref="nocheck" class="chart"></div>
-      </Col>
-      <Col span="12">
-      <div ref="abnormal" class="chart"></div>
-      </Col>
+        <Col span="12">
+        <div ref="nocheck" class="chart"></div>
+        </Col>
+        <Col span="12">
+        <div ref="abnormal" class="chart"></div>
+        </Col>
 
-      <Col span="12">
-      <div ref="opennum" class="chart"></div>
-      </Col>
-      <Col span="12">
-      <div ref="packagerate" class="chart"></div>
-      </Col>
-    </Row>
+        <Col span="12">
+        <div ref="opennum" class="chart"></div>
+        </Col>
+        <Col span="12">
+        <div ref="packagerate" class="chart"></div>
+        </Col>
+      </Row>
+    </div>
   </div>
+
 </template>
 <style scoped>
   .content,
@@ -38,7 +42,7 @@
 
   .chart {
     height: 350px;
-    padding-top:25px;
+    padding-top: 25px;
   }
 
 </style>
@@ -55,7 +59,11 @@
   import main from '../config/dashboard/main';
   import getLineOption from '../config/dashboard/printGoodrate';
 
+  import IFullPage from '@/components/UI/IFullPage';
   export default {
+    components: {
+      IFullPage
+    },
     computed: {
       score() {
         return this.$store.state.score;
@@ -76,10 +84,10 @@
           main: main.option(this.score),
           goodrate: getLineOption(this.print.goodrate),
           goodratePaper: getLineOption(this.paper.goodrate),
-          opennum:getLineOption(this.print.opennum),
-          abnormal:getLineOption(this.paper.abnormal),
-          nocheck:getLineOption(this.print.nocheck),
-          packagerate:getLineOption(this.paper.packagerate),
+          opennum: getLineOption(this.print.opennum),
+          abnormal: getLineOption(this.paper.abnormal),
+          nocheck: getLineOption(this.print.nocheck),
+          packagerate: getLineOption(this.paper.packagerate),
         }
       },
       bread: {
@@ -104,26 +112,26 @@
       'score.paper' () {
         this.chart.main.setOption(this.option.main);
       },
-      'print.goodrate'(){
+      'print.goodrate' () {
         this.chart.goodrate.setOption(this.option.goodrate);
       },
-      'paper.goodrate'(){
+      'paper.goodrate' () {
         this.chart.goodratePaper.setOption(this.option.goodratePaper);
       },
-      'print.opennum'(){
+      'print.opennum' () {
         this.chart.opennum.setOption(this.option.opennum);
       },
-      'paper.abnormal'(){
+      'paper.abnormal' () {
         this.chart.abnormal.setOption(this.option.abnormal);
       },
-      'print.nocheck'(){
+      'print.nocheck' () {
         this.chart.nocheck.setOption(this.option.nocheck);
       },
-      'paper.packagerate'(){
+      'paper.packagerate' () {
         this.chart.packagerate.setOption(this.option.packagerate);
       },
     },
-    methods: {    
+    methods: {
       resizeChart() {
         this.chart.main.resize();
         this.chart.goodrate.resize();

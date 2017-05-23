@@ -1,5 +1,6 @@
 <template>
   <div class="layout">
+    <!--<IVideo/>-->
     <ISlogan/>
     <IMenu/>
     <IContainer/>
@@ -11,6 +12,7 @@
   import IMenu from '@/components/UI/IMenu';
   import IContainer from '@/components/UI/IContainer';
   import IFooter from '@/components/UI/IFooter';
+  import IVideo from '@/components/UI/IVideo';
 
   import {
     mapActions
@@ -21,7 +23,8 @@
       ISlogan,
       IMenu,
       IContainer,
-      IFooter
+      IFooter,
+      IVideo
     },
     computed: {
       print() {
@@ -54,5 +57,4 @@
   //   border: 1px solid #d7dde4;
   //   background: #f5f7f9;
   // }
-
 </style>
