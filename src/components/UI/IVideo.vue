@@ -14,6 +14,7 @@
     width: 100%;
     height: 10%;
     object-fit: cover;
+    z-index:1;
   }
 
 </style>

@@ -18,7 +18,7 @@
       </Menu>
     </IAffix>
 
-    <div class="layout-breadcrumb" :class="{'margin-top-sticky':!theme.flag}">
+    <div class="layout-breadcrumb" :class="{'margin-top-sticky':!theme.flag}" v-show="!chartpage">
       <Breadcrumb>
         <Breadcrumb-item :href="bread.path">{{bread.name}}</Breadcrumb-item>
         <Breadcrumb-item :href="bread.path2">{{bread.name2}}</Breadcrumb-item>
@@ -81,6 +81,9 @@
       },
       activeName(){
         return this.$store.state.activeName;
+      },
+      chartpage() {
+        return this.$route.path == '/dashboard';
       }
     },
     methods: {
@@ -103,7 +106,7 @@
   }
 
   .ivu-menu-light {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.95);
   }
 
   .ivu-menu-dark {
