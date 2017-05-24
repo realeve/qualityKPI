@@ -24,6 +24,13 @@
         <Col span="12">
         <div ref="packagerate" class="chart"></div>
         </Col>
+
+        <Col span="24">
+        <div ref="question" class="chart" style="height:230px;"></div>
+        </Col>
+        <Col span="12">
+        <div ref="plate" class="chart"></div>
+        </Col>
       </Row>
     </div>
   </div>
@@ -56,9 +63,8 @@
   import util from '../config/common';
   import theme from '../config/echartsTheme';
 
-  import main from '../config/dashboard/main';
-  import getLineOption from '../config/dashboard/printGoodrate';
-
+  import chartFormatter from '../config/dashboard/index';
+  
   import IFullPage from '@/components/UI/IFullPage';
   export default {
     components: {
@@ -77,17 +83,21 @@
           abnormal: echarts.init(this.$refs.abnormal, theme),
           nocheck: echarts.init(this.$refs.nocheck, theme),
           packagerate: echarts.init(this.$refs.packagerate, theme),
+          plate: echarts.init(this.$refs.plate, theme),
+          question:echarts.init(this.$refs.question,theme),
         }
       },
       option() {
         return {
-          main: main.option(this.score),
-          goodrate: getLineOption(this.print.goodrate),
-          goodratePaper: getLineOption(this.paper.goodrate),
-          opennum: getLineOption(this.print.opennum),
-          abnormal: getLineOption(this.paper.abnormal),
-          nocheck: getLineOption(this.print.nocheck),
-          packagerate: getLineOption(this.paper.packagerate),
+          main: chartFormatter.main.option(this.score),
+          goodrate: chartFormatter.getLineOption(this.print.goodrate),
+          goodratePaper: chartFormatter.getLineOption(this.paper.goodrate),
+          opennum: chartFormatter.getLineOption(this.print.opennum),
+          abnormal: chartFormatter.getLineOption(this.paper.abnormal),
+          nocheck: chartFormatter.getLineOption(this.print.nocheck),
+          packagerate: chartFormatter.getLineOption(this.paper.packagerate),
+          plate:chartFormatter.calenderMonth(this.print.plate),
+          question:chartFormatter.calender(this.print.question),
         }
       },
       bread: {
@@ -130,6 +140,12 @@
       'paper.packagerate' () {
         this.chart.packagerate.setOption(this.option.packagerate);
       },
+      'print.plate'(){        
+        this.chart.plate.setOption(this.option.plate);
+      },
+      'print.question'(){        
+        this.chart.question.setOption(this.option.question);
+      },
     },
     methods: {
       resizeChart() {
@@ -140,6 +156,8 @@
         this.chart.abnormal.resize();
         this.chart.nocheck.resize();
         this.chart.packagerate.resize();
+        this.chart.plate.resize();
+        this.chart.question.resize();
       },
       initEvent() {
         // 水泡图点击事件

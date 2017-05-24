@@ -311,6 +311,30 @@ let actions = {
             store.state.dashboard.paper.packagerate = res.data;
         });
     },
+    getDashboardPlate(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/dashboard_plate_471.json');
+            store.state.dashboard.print.plate = data;
+            return;
+        }
+        axios.get(api.print.plate, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.dashboard.print.plate = res.data;
+        });
+    },
+    getDashboardQuestion(store){
+          if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/dashboard_question_473.json');
+            store.state.dashboard.print.question = data;
+            return;
+        }
+        axios.get(api.print.question, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.dashboard.print.question = res.data;
+        });
+    },
     initDashboard(store){
         store.dispatch('getDashboardPrintGoodrate');
         store.dispatch('getDashboardPaperGoodrate');
@@ -318,6 +342,8 @@ let actions = {
         store.dispatch('getDashboardAbnormal');
         store.dispatch('getDashboardNocheck');
         store.dispatch('getDashboardPkgRate');
+        store.dispatch('getDashboardPlate');
+        store.dispatch('getDashboardQuestion');
     }
 }
 

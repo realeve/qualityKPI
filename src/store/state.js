@@ -37,6 +37,8 @@ const state = {
       goodrate: [],
       opennum: [],
       nocheck:[],
+      plate:[],
+      question:[]
     },
     paper: {
       goodrate: [],
