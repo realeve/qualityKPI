@@ -323,8 +323,8 @@ let actions = {
             store.state.dashboard.print.plate = res.data;
         });
     },
-    getDashboardQuestion(store){
-          if (process.env.NODE_ENV == 'development') {
+    getDashboardQuestion(store) {
+        if (process.env.NODE_ENV == 'development') {
             let data = require('../config/api/dashboard_question_473.json');
             store.state.dashboard.print.question = data;
             return;
@@ -335,7 +335,19 @@ let actions = {
             store.state.dashboard.print.question = res.data;
         });
     },
-    initDashboard(store){
+    getDashboardPaperReason(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/dashboard_paper_reason_308.json');
+            store.state.dashboard.paper.reason = data;
+            return;
+        }
+        axios.get(api.paper.reason, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.dashboard.paper.reason = res.data;
+        });
+    },
+    initDashboard(store) {
         store.dispatch('getDashboardPrintGoodrate');
         store.dispatch('getDashboardPaperGoodrate');
         store.dispatch('getDashboardOpennum');
@@ -344,6 +356,7 @@ let actions = {
         store.dispatch('getDashboardPkgRate');
         store.dispatch('getDashboardPlate');
         store.dispatch('getDashboardQuestion');
+        store.dispatch('getDashboardPaperReason');
     }
 }
 

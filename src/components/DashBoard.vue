@@ -29,7 +29,10 @@
         <div ref="question" class="chart" style="height:230px;"></div>
         </Col>
         <Col span="12">
-        <div ref="plate" class="chart"></div>
+        <div ref="plate" class="chart2"></div>
+        </Col>
+        <Col span="12">
+        <div ref="reason" class="chart2"></div>
         </Col>
       </Row>
     </div>
@@ -52,6 +55,11 @@
     padding-top: 25px;
   }
 
+  .chart2 {
+    height: 450px;
+    padding-top: 25px;
+  }
+
 </style>
 <script>
   import echarts from 'echarts';
@@ -64,7 +72,7 @@
   import theme from '../config/echartsTheme';
 
   import chartFormatter from '../config/dashboard/index';
-  
+
   import IFullPage from '@/components/UI/IFullPage';
   export default {
     components: {
@@ -84,7 +92,8 @@
           nocheck: echarts.init(this.$refs.nocheck, theme),
           packagerate: echarts.init(this.$refs.packagerate, theme),
           plate: echarts.init(this.$refs.plate, theme),
-          question:echarts.init(this.$refs.question,theme),
+          question: echarts.init(this.$refs.question, theme),
+          reason: echarts.init(this.$refs.reason, theme),
         }
       },
       option() {
@@ -96,8 +105,9 @@
           abnormal: chartFormatter.getLineOption(this.paper.abnormal),
           nocheck: chartFormatter.getLineOption(this.print.nocheck),
           packagerate: chartFormatter.getLineOption(this.paper.packagerate),
-          plate:chartFormatter.calenderMonth(this.print.plate),
-          question:chartFormatter.calender(this.print.question),
+          plate: chartFormatter.calenderMonth(this.print.plate),
+          question: chartFormatter.calender(this.print.question),
+          reason: chartFormatter.sankey(this.paper.reason),
         }
       },
       bread: {
@@ -140,11 +150,14 @@
       'paper.packagerate' () {
         this.chart.packagerate.setOption(this.option.packagerate);
       },
-      'print.plate'(){        
+      'print.plate' () {
         this.chart.plate.setOption(this.option.plate);
       },
-      'print.question'(){        
+      'print.question' () {
         this.chart.question.setOption(this.option.question);
+      },
+      'paper.reason' () {
+        this.chart.reason.setOption(this.option.reason);
       },
     },
     methods: {
@@ -158,6 +171,7 @@
         this.chart.packagerate.resize();
         this.chart.plate.resize();
         this.chart.question.resize();
+        this.chart.reason.resize();
       },
       initEvent() {
         // 水泡图点击事件

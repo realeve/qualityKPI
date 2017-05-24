@@ -13,15 +13,15 @@ let option = (score) => {
             },
             text: '质量管理面板',
             left: 'center'
-        // }, {
-        //     text: '1.综合得分 ',
-        //     textStyle: {
-        //         color: '#fff',
-        //         fontSize: 20,
-        //         fontWeight: 'lighter'
-        //     },
-        //     x: '10%',
-        //     y: '15%'
+                // }, {
+                //     text: '1.综合得分 ',
+                //     textStyle: {
+                //         color: '#fff',
+                //         fontSize: 20,
+                //         fontWeight: 'lighter'
+                //     },
+                //     x: '10%',
+                //     y: '15%'
         }],
         series: [{
             type: 'liquidFill',
@@ -48,7 +48,7 @@ let option = (score) => {
                 itemStyle: {
                     borderColor: color1,
                     borderWidth: 5,
-                    shadowBlur: 10,
+                    shadowBlur: 20,
                     shadowColor: '#fff'
                 },
                 borderDistance: 0
@@ -82,7 +82,7 @@ let option = (score) => {
                 itemStyle: {
                     borderColor: color2,
                     borderWidth: 5,
-                    shadowBlur: 10,
+                    shadowBlur: 20,
                     shadowColor: '#fff'
                 },
                 borderDistance: 0
