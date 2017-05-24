@@ -102,7 +102,7 @@ let option = function(calData) {
         // },
         calendar: [{
             range,
-            cellSize: ['50', '50'],
+            cellSize: ['40', '40'],
             orient: 'vertical',
             splitLine: {
                 show: true,
@@ -166,8 +166,8 @@ let option = function(calData) {
             {
                 type: 'pie',
                 data: pieData,
-                radius: [30, 120],
-                center: ['75%', '40%'],
+                radius: [30, 80],
+                center: ['75%', '50%'],
                 // roseType: 'area',
                 itemStyle: {
                     normal: {

@@ -4,34 +4,34 @@
     <div class="content">
       <div ref="main" class="chart-main"></div>
       <Row>
-        <Col span="12">
+        <Col span="12" :md="8">
         <div ref="goodrate" class="chart"></div>
         </Col>
-        <Col span="12">
+        <Col span="12" :md="8">
         <div ref="goodratePaper" class="chart"></div>
         </Col>
 
-        <Col span="12">
+        <Col span="12" :md="8">
         <div ref="nocheck" class="chart"></div>
         </Col>
-        <Col span="12">
+        <Col span="12" :md="8">
         <div ref="abnormal" class="chart"></div>
         </Col>
 
-        <Col span="12">
+        <Col span="12" :md="8">
         <div ref="opennum" class="chart"></div>
         </Col>
-        <Col span="12">
+        <Col span="12" :md="8">
         <div ref="packagerate" class="chart"></div>
         </Col>
 
-        <Col span="24">
+        <Col span="24" :md="16">
         <div ref="question" class="chart" style="height:230px;"></div>
         </Col>
-        <Col span="12">
-        <div ref="plate" class="chart2"></div>
+        <Col span="12" :md="8">
+        <div ref="plate" class="chart"></div>
         </Col>
-        <Col span="12">
+        <Col span="12" :md="6">
         <div ref="reason" class="chart2"></div>
         </Col>
       </Row>
