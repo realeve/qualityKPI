@@ -56,16 +56,16 @@ function getMonthRange() {
     return [start, end]
 }
 
-function getRoomRate(data){
-    data = data.sort((a,b)=>b[1]-a[1]);
+function getRoomRate(data) {
+    data = data.sort((a, b) => b[1] - a[1]);
     let curSize = data[0][1];
-    return Math.ceil(30/curSize);
+    return Math.ceil(30 / curSize);
 }
 
 let option = function(calData) {
     let calenderData = handleData(calData)
     let pieData = handlePieData(calData)
-    
+
     let zoom = getRoomRate(calenderData);
 
     let range = getMonthRange()
@@ -88,8 +88,7 @@ let option = function(calData) {
         tooltip: {
             position: 'top',
             formatter(param) {
-                console.log(param);
-                if (param.seriesIndex <2) {
+                if (param.seriesIndex < 2) {
                     return '<b>' + param.value[0] + '</b><br>' + getDataStack(param.value[0])
                 } else {
                     return '<b>' + param.name + '</b><br>' + param.value + ' (' + param.percent + '%)'

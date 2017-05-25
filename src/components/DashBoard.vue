@@ -177,18 +177,7 @@
     },
     methods: {
       resizeChart() {
-        this.chart.main.resize();
-        this.chart.goodrate.resize();
-        this.chart.goodratePaper.resize();
-        this.chart.opennum.resize();
-        this.chart.abnormal.resize();
-        this.chart.nocheck.resize();
-        this.chart.packagerate.resize();
-        this.chart.plate.resize();
-        this.chart.question.resize();
-        this.chart.reason.resize();
-        this.chart.prodnum.resize();
-        this.chart.prodGauge.resize();
+        Object.keys(this.chart).forEach(key=>this.chart[key].resize());
       },
       initEvent() {
         // 水泡图点击事件

@@ -1,0 +1,156 @@
+.page-bg {
+    z-index: -2;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    transform: translate3d(0, 0, 0);
+    background-image: url('../../assets/img/page-bg.jpg');
+    background-position: bottom left;
+    background-repeat: repeat-x;
+    background-size: 1300px auto;
+    width: 3900px;
+    animation: bg 90s linear infinite;
+}
+
+.bg-dot {
+    z-index: -1;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    transform: translate3d(0, 0, 0);
+    background-image: url('../../assets/img/bg-dot.png');
+    background-position: bottom left;
+    background-repeat: repeat-x;
+    background-size: 800px auto;
+    width: 2400px;
+    animation: bg2 90s linear infinite;
+}
+
+@keyframes bg {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-1300px, 0, 0);
+    }
+}
+
+@keyframes bg2 {
+    0% {
+        transform: translate3d(-1300px, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.mouse {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    width: 50px;
+    height: 68px;
+    z-index: 12;
+    margin-top: -47px;
+    margin-left: -23px;
+    pointer-events: none;
+}
+
+.mouse .outline {
+    background-image: url('../../assets/img/mouse.png');
+    width: 40px;
+    height: 76px;
+    background-repeat: no-repeat;
+    opacity: .7;
+}
+
+.mouse .wheel {
+    background-image: url('../../assets/img/wheel.png');
+    width: 8px;
+    height: 12px;
+    position: absolute;
+    top: 1px;
+    left: 16px;
+    -webkit-animation: mousewheel 2s 2s infinite;
+    animation: mousewheel 2s 2s infinite;
+}
+
+@-webkit-keyframes mousewheel {
+    0% {
+        opacity: 0
+    }
+    50% {
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+        opacity: 1
+    }
+    100% {
+        -webkit-transform: translateY(60px);
+        transform: translateY(60px);
+        opacity: 0
+    }
+}
+
+@keyframes mousewheel {
+    0% {
+        opacity: 0
+    }
+    50% {
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+        opacity: 1
+    }
+    100% {
+        -webkit-transform: translateY(60px);
+        transform: translateY(60px);
+        opacity: 0
+    }
+}
+
+.fixedcon .control {
+    position: fixed;
+    right: 0;
+    top: 17px;
+    width: 150px;
+    line-height: 0;
+    z-index: 12;
+    font-size: 0;
+    text-align: right
+}
+
+.fixedcon .control i {
+    display: none;
+    cursor: pointer;
+    -webkit-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7)
+}
+
+.fixedcon .control .fullsc {
+    background-image: url('../../assets/img/fullscreen.png');
+    width: 28px;
+    height: 28px
+}
+
+.fixedcon .control .fullsc.enabled {
+    background-image: url('../../assets/img/fullscreen_on.png');
+}
+
+.fixedcon .control .music {
+    width: 28px;
+    height: 28px;
+    background-image: url('../../assets/img/music_on.png');
+}
+
+.fixedcon .control .music.mute {
+    background-image: url('../../assets/img/music_off.png');
+}
+
+.fixedcon .control i.show {
+    display: inline-block;
+    margin: 0 20px
+}
