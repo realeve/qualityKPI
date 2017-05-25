@@ -4,35 +4,41 @@
     <div class="content">
       <div ref="main" class="chart-main"></div>
       <Row>
-        <Col span="12" :md="8">
+        <Col span="12">
         <div ref="goodrate" class="chart"></div>
         </Col>
-        <Col span="12" :md="8">
+        <Col span="12">
         <div ref="goodratePaper" class="chart"></div>
         </Col>
 
-        <Col span="12" :md="8">
+        <Col span="12">
         <div ref="nocheck" class="chart"></div>
         </Col>
-        <Col span="12" :md="8">
+        <Col span="12">
         <div ref="abnormal" class="chart"></div>
         </Col>
 
-        <Col span="12" :md="8">
+        <Col span="12">
         <div ref="opennum" class="chart"></div>
         </Col>
-        <Col span="12" :md="8">
+        <Col span="12">
         <div ref="packagerate" class="chart"></div>
         </Col>
 
-        <Col span="24" :md="16">
+        <Col span="24">
         <div ref="question" class="chart" style="height:230px;"></div>
         </Col>
-        <Col span="12" :md="8">
+        <Col span="12">
         <div ref="plate" class="chart"></div>
         </Col>
-        <Col span="12" :md="6">
+        <Col span="12">
         <div ref="reason" class="chart2"></div>
+        </Col>
+        <Col span="12">
+        <div ref="prodnum" class="chart"></div>
+        </Col>
+        <Col span="12">
+        <div ref="prodGauge" class="chart"></div>
         </Col>
       </Row>
     </div>
@@ -94,6 +100,8 @@
           plate: echarts.init(this.$refs.plate, theme),
           question: echarts.init(this.$refs.question, theme),
           reason: echarts.init(this.$refs.reason, theme),
+          prodnum:echarts.init(this.$refs.prodnum,theme),
+          prodGauge:echarts.init(this.$refs.prodGauge,theme),
         }
       },
       option() {
@@ -108,6 +116,8 @@
           plate: chartFormatter.calenderMonth(this.print.plate),
           question: chartFormatter.calender(this.print.question),
           reason: chartFormatter.sankey(this.paper.reason),
+          prodnum:chartFormatter.getLineOption(this.print.prodnum),
+          prodGauge:chartFormatter.pictorialBar(this.print.prodnum),
         }
       },
       bread: {
@@ -159,6 +169,11 @@
       'paper.reason' () {
         this.chart.reason.setOption(this.option.reason);
       },
+      'print.prodnum' () {
+        this.chart.prodnum.setOption(this.option.prodnum);
+        this.option.prodGauge.title.text = '产品生产计划完成率';
+        this.chart.prodGauge.setOption(this.option.prodGauge);
+      },
     },
     methods: {
       resizeChart() {
@@ -172,6 +187,8 @@
         this.chart.plate.resize();
         this.chart.question.resize();
         this.chart.reason.resize();
+        this.chart.prodnum.resize();
+        this.chart.prodGauge.resize();
       },
       initEvent() {
         // 水泡图点击事件

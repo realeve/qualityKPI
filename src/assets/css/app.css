@@ -1,6 +1,6 @@
  #canvasWrapper {
      background-color: #050510;
-     background: url('../img/chartbg.jpg') #050510 center top no-repeat;
+     background: url('../img/bg.png') #050510 center top no-repeat;
  }
  
  ::-webkit-scrollbar {

@@ -347,6 +347,19 @@ let actions = {
             store.state.dashboard.paper.reason = res.data;
         });
     },
+    getDashboardProdNum(store) {
+        if (process.env.NODE_ENV == 'development') {
+            let data = require('../config/api/dashboard_prodnum_472.json');
+            store.state.dashboard.print.prodnum = data;
+            return;
+        }
+        axios.get(api.print.prodnum, {
+            params: util.getDateRange()
+        }).then(res => {
+            store.state.dashboard.print.prodnum = res.data;
+        });
+    },
+
     initDashboard(store) {
         store.dispatch('getDashboardPrintGoodrate');
         store.dispatch('getDashboardPaperGoodrate');
@@ -357,6 +370,7 @@ let actions = {
         store.dispatch('getDashboardPlate');
         store.dispatch('getDashboardQuestion');
         store.dispatch('getDashboardPaperReason');
+        store.dispatch('getDashboardProdNum');
     }
 }
 

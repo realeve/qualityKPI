@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>玉玦图</title>
+    <script src="./g2.js"></script>
+</head>
+
+<body>
+    <div id="c1"></div>
+    <script>
+    var data = [{
+        question: '问题 1',
+        percent: 0.21
+    }, {
+        question: '问题 2',
+        percent: 0.47
+    }, {
+        question: '问题 3',
+        percent: 0.49
+    }, {
+        question: '问题 4',
+        percent: 0.52
+    }];
+    var Frame = G2.Frame;
+    var frame = new Frame(data); // 加工数据
+    frame.addCol('odd', function(obj, index) {
+        return index % 2;
+    });
+    var chart = new G2.Chart({
+        id: 'c1',
+        forceFit: true,
+        height: 450
+    });
+    var defs = {
+        'percent': {
+            min: 0,
+            max: 1
+        },
+        'odd': {
+            type: 'cat'
+        }
+    };
+    chart.source(frame, defs);
+    chart.tooltip({
+        map: {
+            value: 'percent',
+            name: '占比',
+            title: 'question'
+        }
+    });
+    chart.legend(false);
+    chart.coord('polar', {
+        inner: 0.1
+    }).transpose();
+    chart.interval().position('question*percent')
+        .color('odd', function(value) {
+            return ['rgb(224,74,116)', 'rgb(211,0,57)'][value];
+        })
+        .label('percent', {
+            offset: -5
+        });
+    frame.each(function(obj) {
+        chart.guide().text([obj.question, 0], obj.question + ' ', {
+            textAlign: 'right'
+        });
+    });
+    chart.render();
+    </script>
+</body>
+
+</html>

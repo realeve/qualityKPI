@@ -44,7 +44,8 @@ export default {
                 opennum: url + '473&M=3',
                 // SELECT 品种,[生产日期],round(cast(sum(未检条数) as float)/count(*),2) 平均未检 FROM [dbo].[view_print_hecha] where [生产日期] between 20160501 and 20160531 group by 品种,[生产日期] order by 1,2
                 nocheck: url + '475&M=3',
-
+                // 产量情况
+                prodnum: url + '472&M=3',
             },
             paper: {
                 // SELECT [产品名称],CONVERT(varchar, [开始时间],112) 生产日期,round(avg(好品率),2) 平均好品率 FROM [dbo].[view_paper_quality] where 机型 ='切纸机' and CONVERT(varchar, [开始时间],112) between '20160501' and '20160530' group by [产品名称],CONVERT(varchar, [开始时间],112) order by 1,2
