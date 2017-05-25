@@ -1,9 +1,19 @@
-let color1 = '#ea3c3e',
-    color2 = '#1c8bea',
-    radius = '70%';
+
+function getColor(score){
+    if(score>=90){
+        return 'rgb(126,207,81)';
+    }else if(score>=80){
+        return '#1c8bea';
+    }else if(score>=70){
+        return '#ddb926';
+    }
+    return '#ea3c3e';
+}
 let option = (score) => {
     let print = score.print / 100;
     let paper = score.paper / 100;
+    let  radius = '70%';
+    let color1 = getColor(score.print),color2 = getColor(score.paper);
     return {
         title: [{
             textStyle: {

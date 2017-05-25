@@ -56,9 +56,17 @@ function getMonthRange() {
     return [start, end]
 }
 
+function getRoomRate(data){
+    data = data.sort((a,b)=>b[1]-a[1]);
+    let curSize = data[0][1];
+    return Math.ceil(30/curSize);
+}
+
 let option = function(calData) {
     let calenderData = handleData(calData)
     let pieData = handlePieData(calData)
+    
+    let zoom = getRoomRate(calenderData);
 
     let range = getMonthRange()
     let getDataStack = function(dateName) {
@@ -80,7 +88,8 @@ let option = function(calData) {
         tooltip: {
             position: 'top',
             formatter(param) {
-                if (param.seriesIndex == 0) {
+                console.log(param);
+                if (param.seriesIndex <2) {
                     return '<b>' + param.value[0] + '</b><br>' + getDataStack(param.value[0])
                 } else {
                     return '<b>' + param.name + '</b><br>' + param.value + ' (' + param.percent + '%)'
@@ -149,13 +158,37 @@ let option = function(calData) {
                 coordinateSystem: 'calendar',
                 data: calenderData,
                 symbolSize: function(val) {
-                    return val[1] * 5
+                    return val[1] * zoom
                 },
                 itemStyle: {
                     normal: {
                         color: '#ddb926'
                     }
                 }
+            },
+            {
+                name: 'Top 5',
+                type: 'effectScatter',
+                coordinateSystem: 'calendar',
+                data: calenderData.sort(function(a, b) {
+                    return b[1] - a[1]
+                }).slice(0, 5),
+                symbolSize: function(val) {
+                    return val[1] * zoom
+                },
+                showEffectOn: 'render',
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                hoverAnimation: true,
+                itemStyle: {
+                    normal: {
+                        color: '#f4e925', // #05c0fe
+                        shadowBlur: 10,
+                        shadowColor: '#333'
+                    }
+                },
+                zlevel: 1
             },
             // {
             //   type: 'heatmap',
@@ -167,7 +200,7 @@ let option = function(calData) {
                 type: 'pie',
                 data: pieData,
                 radius: [30, 80],
-                center: ['75%', '50%'],
+                center: ['78%', '50%'],
                 // roseType: 'area',
                 itemStyle: {
                     normal: {

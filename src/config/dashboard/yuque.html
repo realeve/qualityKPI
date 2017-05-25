@@ -12,16 +12,16 @@
     <script>
     var data = [{
         question: '问题 1',
-        percent: 0.21
+        percent: 73.56
     }, {
         question: '问题 2',
-        percent: 0.47
-    }, {
-        question: '问题 3',
-        percent: 0.49
+        percent: 72.44
     }, {
         question: '问题 4',
-        percent: 0.52
+        percent: 86.36
+    }, {
+        question: '问题 3',
+        percent: 93
     }];
     var Frame = G2.Frame;
     var frame = new Frame(data); // 加工数据
@@ -36,7 +36,7 @@
     var defs = {
         'percent': {
             min: 0,
-            max: 1
+            max: 100
         },
         'odd': {
             type: 'cat'
@@ -56,7 +56,7 @@
     }).transpose();
     chart.interval().position('question*percent')
         .color('odd', function(value) {
-            return ['rgb(224,74,116)', 'rgb(211,0,57)'][value];
+            return ['rgb(96,164,231)', 'rgb(76,144,211)'][value];
         })
         .label('percent', {
             offset: -5

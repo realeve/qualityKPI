@@ -10,7 +10,7 @@ export default new Router({
     routes: [{
         path: '/',
         name: 'Home',
-        component: Print
+        component: DashBoard
     }, {
         path: '/print',
         name: 'Print',

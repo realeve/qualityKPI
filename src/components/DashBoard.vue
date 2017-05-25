@@ -110,7 +110,7 @@
           goodrate: chartFormatter.getLineOption(this.print.goodrate),
           goodratePaper: chartFormatter.getLineOption(this.paper.goodrate),
           opennum: chartFormatter.getLineOption(this.print.opennum),
-          abnormal: chartFormatter.getLineOption(this.paper.abnormal),
+          abnormal: chartFormatter.calenderMonth(this.paper.abnormal),
           nocheck: chartFormatter.getLineOption(this.print.nocheck),
           packagerate: chartFormatter.getLineOption(this.paper.packagerate),
           plate: chartFormatter.calenderMonth(this.print.plate),

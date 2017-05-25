@@ -31,7 +31,7 @@
   export default {
     computed: {
       chartpage() {
-        return this.$route.path == '/dashboard';
+        return this.$route.path == '/dashboard' || this.$route.path == '/';
       }
     }
   }

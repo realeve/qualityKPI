@@ -83,7 +83,7 @@
         return this.$store.state.activeName;
       },
       chartpage() {
-        return this.$route.path == '/dashboard';
+        return this.$route.path == '/dashboard' || this.$route.path == '/';
       }
     },
     methods: {
