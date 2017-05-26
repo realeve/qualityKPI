@@ -38,7 +38,7 @@
       return {
         menuList: [{
           hasSubMenu: false,
-          name: '/dashboard',
+          name: '/',
           icon: 'dashboard',
           title: '控制台'
         }, {

@@ -6,7 +6,7 @@
       <div class="control">
         <i class="fullsc show" :class="{'enabled':isFullScreen}" @click="fullScreen" title="全屏模式"></i>
         <i class="music show" :class="{mute}" title="背景音乐" @click="audioPlayer"></i>
-        <audio src="http://h5.zmiti.com/public/beltRoad1/assets/music/bg.mp3" autoplay loop="loop" ref="audio"></audio>
+        <audio src="/static/bg.mp3" autoplay loop="loop" ref="audio"></audio>
       </div>
       <div class="mouse" v-show="!toBottom">
         <div class="outline"></div>
