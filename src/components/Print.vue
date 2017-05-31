@@ -8,32 +8,24 @@
         </p>
         <Table :columns="column.goodRate" :data="goodRateScore.detail" size="small"></Table>
       </Card>
-      </Col>
-      <Col span="12">
       <Card dis-hover :bordered="false">
         <p slot="title">2.开包量
           <Tag :color="openNumScore.color"> {{openNumScore.percent}} 分</Tag>
         </p>
         <Table :columns="column.openNum" :data="openNumScore.detail" size="small"></Table>
       </Card>
-      </Col>
-      <Col span="12">
       <Card dis-hover :bordered="false">
         <p slot="title">3.耐印量
           <Tag :color="plateScore.color"> {{plateScore.percent}} 分</Tag>
         </p>
         <Table :columns="column.plateNum" :data="plateScore.detail" size="small"></Table>
       </Card>
-      </Col>
-      <Col span="12">
       <Card dis-hover :bordered="false">
         <p slot="title">4.机检漏废
           <Tag :color="machineWeak.color"> {{machineWeak.percent}} 分</Tag>
         </p>
         <Table :columns="column.machineWeak" :data="machineWeak.detail" size="small"></Table>
       </Card>
-      </Col>
-      <Col span="12">
       <Card dis-hover :bordered="false">
         <p slot="title">5.机检未检
           <Tag :color="uncheckedScore.color"> {{uncheckedScore.percent}} 分</Tag>
@@ -48,40 +40,30 @@
         </p>
         <Table :columns="column.procRate" :data="procRateScore.detail" size="small"></Table>
       </Card>
-      </Col>
-      <Col span="12">
       <Card dis-hover :bordered="false">
         <p slot="title">7.小开作废率
           <Tag :color="fakeRate.color"> {{fakeRate.percent}} 分</Tag>
         </p>
         <Table :columns="column.fakeRate" :data="fakeRate.detail" size="small"></Table>
       </Card>
-      </Col>
-      <Col span="12">
       <Card dis-hover :bordered="false">
         <p slot="title">8.清分机拒检
           <Tag :color="qfjScore.color"> {{qfjScore.percent}} 分</Tag>
         </p>
         <Table :columns="column.qfj" :data="qfjScore.detail" size="small"></Table>
       </Card>
-      </Col>
-      <Col span="12">
       <Card dis-hover :bordered="false">
         <p slot="title">9.过程质量控制水平
           <Tag :color="SPCScore.color"> {{SPCScore.percent}} 分</Tag>
         </p>
         <Table :columns="column.spc" :data="SPCScore.detail" size="small"></Table>
       </Card>
-      </Col>
-      <Col span="12">
       <Card dis-hover :bordered="false">
         <p slot="title">10.质量问题发布
           <Tag :color="questionScore.color"> {{questionScore.percent}} 分</Tag>
         </p>
         <Table :columns="column.question" :data="questionScore.detail" size="small"></Table>
       </Card>
-      </Col>
-      <Col span="12">
       <Card dis-hover :bordered="false">
         <p slot="title">11.风险隐患排查
           <Tag :color="riskScore.color"> {{riskScore.percent}} 分</Tag>
