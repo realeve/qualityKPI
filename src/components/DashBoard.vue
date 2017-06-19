@@ -100,8 +100,8 @@
           plate: echarts.init(this.$refs.plate, theme),
           question: echarts.init(this.$refs.question, theme),
           reason: echarts.init(this.$refs.reason, theme),
-          prodnum:echarts.init(this.$refs.prodnum,theme),
-          prodGauge:echarts.init(this.$refs.prodGauge,theme),
+          prodnum: echarts.init(this.$refs.prodnum, theme),
+          prodGauge: echarts.init(this.$refs.prodGauge, theme),
         }
       },
       option() {
@@ -116,8 +116,8 @@
           plate: chartFormatter.calenderMonth(this.print.plate),
           question: chartFormatter.calender(this.print.question),
           reason: chartFormatter.sankey(this.paper.reason),
-          prodnum:chartFormatter.getLineOption(this.print.prodnum),
-          prodGauge:chartFormatter.pictorialBar(this.print.prodnum),
+          prodnum: chartFormatter.getLineOption(this.print.prodnum),
+          prodGauge: chartFormatter.pictorialBar(this.print.prodnum),
         }
       },
       bread: {
@@ -142,34 +142,64 @@
       'score.paper' () {
         this.chart.main.setOption(this.option.main);
       },
-      'print.goodrate' () {
+      'print.goodrate' (val) {
+        if (val.rows == 0) {
+          return;
+        }
         this.chart.goodrate.setOption(this.option.goodrate);
       },
-      'paper.goodrate' () {
+      'paper.goodrate' (val) {
+        if (val.rows == 0) {
+          return;
+        }
         this.chart.goodratePaper.setOption(this.option.goodratePaper);
       },
-      'print.opennum' () {
+      'print.opennum' (val) {
+        if (val.rows == 0) {
+          return;
+        }
         this.chart.opennum.setOption(this.option.opennum);
       },
-      'paper.abnormal' () {
+      'paper.abnormal' (val) {
+        if (val.rows == 0) {
+          return;
+        }
         this.chart.abnormal.setOption(this.option.abnormal);
       },
-      'print.nocheck' () {
+      'print.nocheck' (val) {
+        if (val.rows == 0) {
+          return;
+        }
         this.chart.nocheck.setOption(this.option.nocheck);
       },
-      'paper.packagerate' () {
+      'paper.packagerate' (val) {
+        if (val.rows == 0) {
+          return;
+        }
         this.chart.packagerate.setOption(this.option.packagerate);
       },
-      'print.plate' () {
+      'print.plate' (val) {
+        if (val.rows == 0) {
+          return;
+        }
         this.chart.plate.setOption(this.option.plate);
       },
-      'print.question' () {
+      'print.question' (val) {
+        if (val.rows == 0) {
+          return;
+        }
         this.chart.question.setOption(this.option.question);
       },
-      'paper.reason' () {
+      'paper.reason' (val) {
+        if (val.rows == 0) {
+          return;
+        }
         this.chart.reason.setOption(this.option.reason);
       },
-      'print.prodnum' () {
+      'print.prodnum' (val) {
+        if (val.rows == 0) {
+          return;
+        }
         this.chart.prodnum.setOption(this.option.prodnum);
         this.option.prodGauge.title.text = '产品生产计划完成率';
         this.chart.prodGauge.setOption(this.option.prodGauge);
@@ -177,7 +207,7 @@
     },
     methods: {
       resizeChart() {
-        Object.keys(this.chart).forEach(key=>this.chart[key].resize());
+        Object.keys(this.chart).forEach(key => this.chart[key].resize());
       },
       initEvent() {
         // 水泡图点击事件

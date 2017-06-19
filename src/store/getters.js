@@ -42,7 +42,7 @@ let getters = {
     fakeRate(state) {
         return util.calcScoreDetail({
             dataNum: kpi.print.fakeRate,
-            valIdx: 7,
+            valIdx: 6,
             numArr: state.print.openNum,
             type: kpi.scoreType.ASC
         });
@@ -109,6 +109,7 @@ let getters = {
     procRateScore(state) {
         let sum = 0;
         let sub = 0;
+       // console.log(state.print.procRate);
         let detail = state.print.procRate.map(item => {
             sum += parseInt(item[1]);
             if (item[0] == '裁封') {

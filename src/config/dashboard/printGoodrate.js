@@ -1,24 +1,6 @@
 import util from '../chartFunc'
 
-function option (data,chartType = 'line') {
-  let uniLegend = util.arrUnique(data.data.map(item => item[0]))
-  let legendData = uniLegend.map(item => {
-    return {
-      name: item,
-      icon: 'pin'
-    }
-  })
-
-  let series = uniLegend.map(legend => {
-    let seriesData = []
-    data.data.forEach(item => {
-      if (item[0] == legend) {
-        seriesData.push([util.convertString2Date(item[1]), item[2]])
-      }
-    })
-    return util.getBarSeries({name: legend,type: chartType,data: seriesData})
-  })
-
+function getDefaultOption (text) {
   return {
     title: [{
       textStyle: {
@@ -26,7 +8,7 @@ function option (data,chartType = 'line') {
         fontSize: 25,
         fontWeight: 'lighter' // 100
       },
-      text: data.title,
+      text,
       left: 'center'
     }],
     'connectNulls': true,
@@ -44,7 +26,7 @@ function option (data,chartType = 'line') {
       'end': 100
     }],
     'legend': {
-      'data': legendData,
+      'data': [],
       'x2': '5%',
       'y': '12%',
       'itemGap': 20,
@@ -55,7 +37,6 @@ function option (data,chartType = 'line') {
       'show': true
     },
     'xAxis': [{
-      // 'name': data.header[1].title,
       'type': 'time',
       'nameLocation': 'middle',
       nameGap: 40,
@@ -64,7 +45,6 @@ function option (data,chartType = 'line') {
       }
     }],
     'yAxis': [{
-      'name': data.header[2].title,
       'type': 'value',
       splitArea: {
         show: false
@@ -72,7 +52,35 @@ function option (data,chartType = 'line') {
       splitLine: {
         'show': false
       }
-    }],
-  series}
+    }]
+  }
+}
+
+function option (data, chartType = 'line') {
+  let defaultOption = getDefaultOption(data.title);
+  if (data.rows == 0 || typeof data.rows =='undefined') {
+    return defaultOption;
+  }
+  let uniLegend = util.arrUnique(data.data.map(item => item[0]))
+  let legendData = uniLegend.map(item => {
+    return {
+      name: item,
+      icon: 'pin'
+    }
+  })
+
+  let series = uniLegend.map(legend => {
+    let seriesData = []
+    data.data.forEach(item => {
+      if (item[0] == legend) {
+        seriesData.push([util.convertString2Date(item[1]), item[2]])
+      }
+    })
+    return util.getBarSeries({name: legend,type: chartType,data: seriesData})
+  })
+  defaultOption.legend.data = legendData
+  defaultOption.yAxis.name = data.header[2].title
+  defaultOption.series = series
+  return defaultOption
 }
 export default option

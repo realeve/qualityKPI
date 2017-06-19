@@ -2,7 +2,7 @@
   <div class="warper first-page">
     <div class="content">
       <div class="slogan">
-        <h1>质量综合评价</h1>
+        <h1>质量综合评价得分</h1>
         <h3>印刷工序：{{score.print}} 分,纸张工序：{{score.paper}} 分</h3>
       </div>
     </div>

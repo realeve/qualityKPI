@@ -54,7 +54,11 @@ function getNow(type = 8) {
 function getDateRange() {
     let params = {
         tstart: getNow(7),
-        tend: getNow(8)
+        tend: getNow(8),
+		tstart2: getNow(7),
+        tend2: getNow(8),
+		tstart3: getNow(7),
+        tend3: getNow(8)
     }
 
     // 测试模式固定起始时间输出数据
