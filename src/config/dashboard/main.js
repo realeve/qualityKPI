@@ -18,10 +18,10 @@ let option = (score) => {
         title: [{
             textStyle: {
                 color: '#fff',
-                fontSize: 40,
+                fontSize: 30,
                 fontWeight: 'lighter' //100
             },
-            text: '质量管理面板',
+            text: '质量实时监控预警',
             left: 'center'
                 // }, {
                 //     text: '1.综合得分 ',

@@ -375,13 +375,13 @@ let actions = {
       store.state.dashboard.print.plate = data
       return
     }
-    axios.get(api.print.plate, {
+    axios.get(api.dashboard.print.plate, {
       params: util.getDateRange()
     }).then(res => {
       store.state.dashboard.print.plate = res.data
     }).catch(e => {
       console.log(e)
-      console.log(api.print.plate)
+      console.log(api.dashboard.print.plate)
     })
   },
   getDashboardQuestion(store) {
@@ -390,13 +390,15 @@ let actions = {
       store.state.dashboard.print.question = data
       return
     }
-    axios.get(api.print.question, {
-      params: util.getDateRange()
+    let params = util.getDateRange();
+    params.tstart = parseInt(params.tstart)-10000;
+    axios.get(api.dashboard.print.question, {
+      params
     }).then(res => {
       store.state.dashboard.print.question = res.data
     }).catch(e => {
       console.log(e)
-      console.log(api.print.question)
+      console.log(api.dashboard.print.question)
     })
   },
   getDashboardPaperReason(store) {

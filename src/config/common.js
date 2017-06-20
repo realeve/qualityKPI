@@ -58,7 +58,8 @@ function getDateRange() {
 		tstart2: getNow(7),
         tend2: getNow(8),
 		tstart3: getNow(7),
-        tend3: getNow(8)
+        tend3: getNow(8),
+        cache:10
     }
 
     // 测试模式固定起始时间输出数据
