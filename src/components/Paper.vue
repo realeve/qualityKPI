@@ -41,7 +41,7 @@
         <Table :columns="column.spc" :data="PSPCScore.detail" size="small"></Table>
       </Card>
       <Card dis-hover :bordered="false">
-        <p slot="title">7.异常轴数量(好品率相差5以上)
+        <p slot="title">7.异常轴比例(好品率相差5以上)
           <Tag :color="abnormalScore.color"> {{abnormalScore.percent}} 分</Tag>
         </p>
         <Table :columns="column.abnormal" :data="abnormalScore.detail" size="small"></Table>
@@ -74,7 +74,7 @@
           rePkgRate: util.getColumnList(['品种', '返工率']),
           question: util.getColumnList(['状态', '问题数'], false),
           spc: util.getColumnList(['品种', '得分']),
-          abnormal:util.getColumnList(['品种','异常轴个数'])
+          abnormal:util.getColumnList(['品种','异常轴比例'])
         };
       },
       ...mapGetters([
