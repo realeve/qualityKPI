@@ -128,7 +128,7 @@ let print = {
 let paper = {
   goodRate: {
     name: '纸机好品率',
-    score: 15,
+    score: 10,
     level: {
       '103-G-2A': [96, 94, 92, 90, 88],
       '103-G-3A': [95, 93, 91, 89, 87],
@@ -141,7 +141,7 @@ let paper = {
   },
   cGoodRate: {
     name: '切纸机好品率',
-    score: 15,
+    score: 10,
     level: {
       '103-G-2A': [96, 94, 92, 90, 88],
       '103-G-3A': [95, 93, 91, 89, 87],
@@ -181,10 +181,10 @@ let paper = {
   question: {
     name: '质量问题发布',
     // 单项系数5分
-    score: 15,
+    score: 25,
     level: {},
     // 总分
-    subScore: 100
+    subScore: 40
   },
   // 该指标范围需讨论
   spc: {
