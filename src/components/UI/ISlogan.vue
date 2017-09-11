@@ -3,6 +3,7 @@
     <div class="content">
       <div class="slogan">
         <h1>质量综合评价得分</h1>
+        <h3>总分：{{subScore}} 分</h3>
         <h3>印刷工序：{{score.print}} 分,纸张工序：{{score.paper}} 分</h3>
       </div>
     </div>
@@ -55,6 +56,9 @@
     computed: {
       score() {
         return this.$store.state.score;
+      },
+      subScore(){
+        return (this.score.print*0.65+this.score.paper*0.35).toFixed(2);
       }
     }
   }

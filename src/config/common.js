@@ -177,7 +177,8 @@ function calcScoreDetail(option) {
         score: parseFloat(sum.toFixed(3)),
         percent: parseFloat(percent.toFixed(2)),
         detail: levelList,
-        color: getLevelColor(percent)
+        color: getLevelColor(percent),
+        subScore
     }
 }
 

@@ -151,19 +151,20 @@ let actions = {
     })
   },
   printScore(store) {
-    let sum = 0
-    Object.keys(kpi.print).forEach(item => sum += kpi.print[item].score)
+    // let sum = 0
+    // Object.keys(kpi.print).forEach(item => sum += kpi.print[item].score)
     let curScore = store.getters.goodRateScore.score + store.getters.openNumScore.score + store.getters.plateScore.score + store.getters.machineWeak
       .score + store.getters.fakeRate.score + store.getters.uncheckedScore.score + store.getters.questionScore.score + store.getters.riskScore.score +
-    store.getters.qfjScore.score + store.getters.SPCScore.score + store.getters.procRateScore.score
-    store.state.score.print = (curScore / sum * 100).toFixed(2)
+    store.getters.qfjScore.score + store.getters.SPCScore.score;// + store.getters.procRateScore.score
+    // store.state.score.print = (curScore / sum * 100).toFixed(2)
+    store.state.score.print = curScore.toFixed(2)
   },
   initPrint(store) {
     store.dispatch('getGoodRate')
     store.dispatch('getOpenNum')
     store.dispatch('getPlatePrintNum')
     store.dispatch('getNoCheckNum')
-    store.dispatch('getProcRate')
+    // store.dispatch('getProcRate')
     store.dispatch('getQualityQuestion')
     store.dispatch('getQualityRisk')
     store.dispatch('getUncheckByQFJ')

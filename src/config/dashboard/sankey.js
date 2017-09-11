@@ -86,7 +86,7 @@ let option = function (obj) {
         type:'bar'
     }
   }
-  console.log(obj)
+  
   if (obj.rows == 0 || typeof obj.rows == 'undefined') {
     return defaultOption
   }

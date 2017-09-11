@@ -1,7 +1,7 @@
 let print = {
   goodRate: {
     name: '好品率',
-    score: 3,
+    score: 10,
     level: {
       '9602A': [91, 88, 85, 82, 80],
       '9603A': [84, 82, 80, 78, 76],
@@ -13,7 +13,7 @@ let print = {
   },
   openNum: {
     name: '开包量',
-    score: 5,
+    score: 10,
     level: {
       '9602A': [40, 45, 50, 60, 70],
       '9603A': [60, 70, 80, 90, 100],
@@ -25,7 +25,7 @@ let print = {
   },
   plateNum: {
     name: '耐印量',
-    score: 3,
+    score: 6,
     level: {
       '镍凹版': [110, 95, 85, 78, 70],
       '丝网版': [68, 65, 60, 55, 50],
@@ -37,7 +37,7 @@ let print = {
   // 该指标范围需讨论
   machineWeak: {
     name: '机检漏废',
-    score: 5,
+    score: 10,
     level: {
       '9602A': [40, 50, 60, 70, 80],
       '9603A': [40, 50, 60, 70, 80],
@@ -50,7 +50,7 @@ let print = {
   // 该指标范围需讨论
   fakeRate: {
     name: '小开作废率',
-    score: 7,
+    score: 14,
     level: {
       '9602A': [0.3, 0.4, 0.5, 0.6, 0.7],
       '9603A': [ 0.5, 0.6, 0.7, 0.8, 0.9],
@@ -63,7 +63,7 @@ let print = {
   // 该指标范围需讨论
   uncheckedNum: {
     name: '机检未检',
-    score: 5,
+    score: 10,
     level: {
       '9602A': [1, 2, 3, 4, 5],
       '9603A': [1, 2, 3, 4, 5],
@@ -77,24 +77,24 @@ let print = {
   question: {
     name: '质量问题发布',
     // 单项系数5分
-    score: 5,
+    score: 10,
     level: {},
     // 总分
-    subScore: 100
+    // subScore: 100
   },
   // 该指标范围需讨论
   risk: {
     name: '风险隐患排查',
     // 单项系数5分
-    score: 5,
+    score: 10,
     level: {},
     // 总分
-    subScore: 50
+    // subScore: 50
   },
   // 该指标范围需讨论
   qfj: {
     name: '清分机拒检',
-    score: 5,
+    score: 10,
     level: {
       '9602A': [0.6, 0.7, 0.8, 0.9, 1.0],
       '9603A': [0.6, 0.7, 0.8, 0.9, 1.0],
@@ -107,7 +107,7 @@ let print = {
   // 该指标范围需讨论
   spc: {
     name: 'SPC过程质量得分',
-    score: 5,
+    score: 10,
     level: {
       '9602A': [94, 92, 90, 88, 86],
       '9603A': [94, 92, 90, 88, 86],
@@ -117,13 +117,13 @@ let print = {
       '9607T': [94, 92, 90, 88, 86]
     }
   },
-  procRate: {
-    name: '码后核查工艺执行率',
-    score: 2,
-    level: {
+  // procRate: {
+  //   name: '码后核查工艺执行率',
+  //   score: 2,
+  //   level: {
 
-    }
-  }
+  //   }
+  // }
 }
 let paper = {
   goodRate: {
