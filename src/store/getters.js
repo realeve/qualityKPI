@@ -190,6 +190,7 @@ let getters = {
       score: parseFloat((score / 100 * kpi.paper.question.score).toFixed(2)),
       percent: parseFloat(score.toFixed(2)),
       color: util.getLevelColor(score),
+      subScore: kpi.paper.question.score,
       detail
     };
   },
