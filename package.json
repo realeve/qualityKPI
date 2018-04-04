@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "echarts": "^3.5.4",
-    "echarts-liquidfill": "^1.0.5",
+    "echarts": "^4.0.4",
+    "echarts-liquidfill": "^2.0.0",
     "iview": "^2.0.0-rc.12",
     "lodash": "^4.17.4",
     "vue": "^2.2.6",
@@ -60,9 +60,5 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
 }

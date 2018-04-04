@@ -1,9 +1,9 @@
 // vues-computed
 
-import util from '../config/common'
-import settings from '../config/settings'
-import kpi from '../config/scoreKPI'
-import _ from 'lodash'
+import util from "../config/common";
+import settings from "../config/settings";
+import kpi from "../config/scoreKPI";
+import _ from "lodash";
 
 let getters = {
   goodRateScore(state) {
@@ -23,7 +23,7 @@ let getters = {
     });
   },
   plateScore(state) {
-    let numArr = state.print.plateNum.filter(item => item[0] != '钢制金属版');
+    let numArr = state.print.plateNum.filter(item => item[0] != "钢制金属版");
     return util.calcScoreDetail({
       dataNum: kpi.print.plateNum,
       valIdx: 1,
@@ -61,15 +61,15 @@ let getters = {
     let subScore = kpi.print.question.score;
     let ratio = 100 / subScore;
     let detail = state.print.question.map(item => {
-      score += ((item[0] == '已完成') ? 0.05 : .1) * item[1];
+      score += (item[0] == "已完成" ? 0.05 : 0.1) * item[1];
       return {
         prod: item[0],
         value: item[1]
       };
-    })
+    });
     score = subScore - score;
     return {
-      score: parseFloat((Math.max(score, 0)).toFixed(2)),
+      score: parseFloat(Math.max(score, 0).toFixed(2)),
       percent: parseFloat((ratio * score).toFixed(2)),
       color: util.getLevelColor(score * ratio),
       subScore: kpi.print.question.score,
@@ -81,15 +81,15 @@ let getters = {
     let subScore = kpi.print.risk.score;
     let ratio = 100 / subScore;
     let detail = state.print.risk.map(item => {
-      score += ((item[0] == '已完成') ? 0.05 : 0.1) * item[1];
+      score += (item[0] == "已完成" ? 0.05 : 0.1) * item[1];
       return {
         prod: item[0],
         value: item[1]
       };
-    })
+    });
     score = subScore - score;
     return {
-      score: parseFloat((Math.max(score, 0)).toFixed(2)),
+      score: parseFloat(Math.max(score, 0).toFixed(2)),
       percent: parseFloat((ratio * score).toFixed(2)),
       color: util.getLevelColor(score * ratio),
       subScore: kpi.print.risk.score,
@@ -118,17 +118,19 @@ let getters = {
     // console.log(state.print.procRate);
     let detail = state.print.procRate.map(item => {
       sum += parseInt(item[1]);
-      if (item[0] == '裁封') {
+      if (item[0] == "裁封") {
         sub = item[1];
       }
       return {
         prod: item[0],
         value: item[1]
       };
-    })
+    });
 
-    let percent = parseFloat((sub / sum) * 100).toFixed(2);
-    let score = parseFloat((kpi.print.procRate.score * percent / 100).toFixed(2));
+    let percent = parseFloat(sub / sum * 100).toFixed(2);
+    let score = parseFloat(
+      (kpi.print.procRate.score * percent / 100).toFixed(2)
+    );
     return {
       score,
       percent,
@@ -179,12 +181,12 @@ let getters = {
   pQuestionScore(state) {
     let score = 0;
     let detail = state.paper.question.map(item => {
-      score += ((item[0] == '已完成') ? 0.5 : 1) * item[1];
+      score += (item[0] == "已完成" ? 0.5 : 1) * item[1];
       return {
         prod: item[0],
         value: item[1]
       };
-    })
+    });
     score = (1 - score / kpi.paper.question.subScore) * 100;
     return {
       score: parseFloat((score / 100 * kpi.paper.question.score).toFixed(2)),
@@ -202,6 +204,6 @@ let getters = {
       type: kpi.scoreType.DESC
     });
   }
-}
+};
 
-export default getters
+export default getters;
