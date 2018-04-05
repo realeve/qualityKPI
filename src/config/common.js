@@ -49,6 +49,8 @@ function getNow(type = 8) {
     case 8:
       output = a + b + c;
       break;
+
+    // lastMonth
     case 9:
       if (date.getMonth() == 0) {
         a = a - 1;
@@ -59,6 +61,19 @@ function getNow(type = 8) {
       c = jsRight("0" + date.getDate(), 2);
 
       output = a + b + c;
+      break;
+
+    // lastMonth
+    case 10:
+      if (date.getMonth() == 0) {
+        a = a - 1;
+        b = 12;
+      } else {
+        b = jsRight("0" + date.getMonth(), 2);
+      }
+      c = jsRight("0" + date.getDate(), 2);
+
+      output = a + "-" + b + "-" + c;
       break;
   }
   return output;

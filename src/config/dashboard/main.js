@@ -32,7 +32,7 @@ let option = score => {
       color: [color],
       label: {
         formatter: function(val) {
-          return label + "工序\n\n" + val.value * 100 + "分";
+          return label + "工序\n\n" + (val.value * 100).toFixed(2) + "分";
         },
         textStyle: {
           fontSize: 22,

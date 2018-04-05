@@ -27,102 +27,106 @@
   </div>
 </template>
 <script>
-  import IAffix from '@/components/UI/IAffix';
-  import util from '../../config/common';
+import IAffix from "@/components/UI/IAffix";
+import util from "../../config/common";
 
-  export default {
-    components: {
-      IAffix
-    },
-    data() {
-      return {
-        menuList: [{
+export default {
+  components: {
+    IAffix
+  },
+  data() {
+    return {
+      menuList: [
+        {
           hasSubMenu: false,
-          name: '/',
-          icon: 'dashboard',
-          title: '控制台'
-        }, {
-          title: '印钞工序',
-          name: '/print',
-          icon: 'ios-grid-view',
-          hasSubMenu: true,
-          subMenu: [{
-            title: '概述',
-            name: ''
-          }, {
-            title: '胶凹',
-            name: 'oi'
-          }, {
-            title: '印码',
-            name: 'code'
-          }, {
-            title: '检封',
-            name: 'pkg'
-          }]
-        }, {
-          title: '钞纸工序',
-          name: '/paper',
-          icon: 'navicon'
-        }],
-        theme: {
-          flag: true,
-          name: 'light'
-        }
-      }
-    },
-    computed:{
-      bread:{
-        get(){
-          return this.$store.state.bread;
+          name: "/",
+          icon: "dashboard",
+          title: "控制台"
         },
-        set(val){
-          this.$store.commit('setBread',val);
+        {
+          title: "印钞工序",
+          name: "/print",
+          icon: "ios-grid-view"
+          // 关闭二级菜单
+          // hasSubMenu: true,
+          // subMenu: [{
+          //   title: '概述',
+          //   name: ''
+          // }, {
+          //   title: '胶凹',
+          //   name: 'oi'
+          // }, {
+          //   title: '印码',
+          //   name: 'code'
+          // }, {
+          //   title: '检封',
+          //   name: 'pkg'
+          // }]
+        },
+        {
+          title: "钞纸工序",
+          name: "/paper",
+          icon: "navicon"
         }
+      ],
+      theme: {
+        flag: true,
+        name: "light"
+      }
+    };
+  },
+  computed: {
+    bread: {
+      get() {
+        return this.$store.state.bread;
       },
-      activeName(){
-        return this.$store.state.activeName;
-      },
-      chartpage() {
-        return this.$route.path == '/dashboard' || this.$route.path == '/';
+      set(val) {
+        this.$store.commit("setBread", val);
       }
     },
-    methods: {
-      changeTheme() {
-        this.theme.flag = !this.theme.flag;
-        this.theme.name = this.theme.flag ? 'light' : 'dark';
-      },
-      getMenu(path) {
-        this.$router.push(path);
-        this.bread = util.getBread(path);
-      }
+    activeName() {
+      return this.$store.state.activeName;
+    },
+    chartpage() {
+      return this.$route.path == "/dashboard" || this.$route.path == "/";
+    }
+  },
+  methods: {
+    changeTheme() {
+      this.theme.flag = !this.theme.flag;
+      this.theme.name = this.theme.flag ? "light" : "dark";
+    },
+    getMenu(path) {
+      this.$router.push(path);
+      this.bread = util.getBread(path);
     }
   }
-
+};
 </script>
 
 <style scoped lang="less">
-  .layout-breadcrumb {
-    padding: 10px 15px 0;
-  }
+.layout-breadcrumb {
+  padding: 10px 15px 0;
+}
 
-  .ivu-menu-light {
-    background: rgba(255, 255, 255, 0.95);
-  }
+.ivu-menu-light {
+  background: rgba(255, 255, 255, 0.95);
+}
 
-  .ivu-menu-dark {
-    background: rgba(36,36,62,.9); //rgba(19, 17, 37, 0.92);    
-  }
-  .ivu-menu-dark.ivu-menu-horizontal .ivu-menu-item, .ivu-menu-dark.ivu-menu-horizontal .ivu-menu-submenu {
-    color:#ccc;
-  }
-  
-  .ivu-menu {
-    display: flex;
-    justify-content: center;
-  }
+.ivu-menu-dark {
+  background: rgba(36, 36, 62, 0.9); //rgba(19, 17, 37, 0.92);
+}
+.ivu-menu-dark.ivu-menu-horizontal .ivu-menu-item,
+.ivu-menu-dark.ivu-menu-horizontal .ivu-menu-submenu {
+  color: #ccc;
+}
 
-  .margin-top-sticky {
-    padding-top: 90px;
-  }
+.ivu-menu {
+  display: flex;
+  justify-content: center;
+}
 
+.margin-top-sticky {
+  padding-top: 90px;
+}
 </style>
