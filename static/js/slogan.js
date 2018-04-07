@@ -106,7 +106,7 @@ webpackJsonp([1, 0], [function(t, e, r) {
         }
         return t.prototype.init = function() {}, t
       }(),
-      n = ["static/js/img/1.png", "static/js/img/2.png"],
+      n = ["data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAJxJREFUGBmNkDEOAUEYhWdEaIRKg9JlnETvHg7gJC6jpKEimiWZ8X2zu80oeMmXN5l9ebP/H0NRjpgMOvc2Q2o9GighAyMYd46FFzSdpyEHmwxNYQ4zUHe4wQMag7bZZGgNS1CX1krru25cHI5hZ2C7CXvsCr4WbftSdoxKDmPrBFZQP33i7gxPQ67A6fxx1Xs/jN/S3+txNej3wj8E8i4O/IZ0gQAAAABJRU5ErkJggg==", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAASpJREFUGBmNUDFOw0AQ3HUOJ5ZMggQUCS4ooEmFRJXOn0gk+EmqxAW8gheQjhe4Cw1SGmiIBEVQClPEsiXjy/mWXQchSrZYnXbnZmYHgYuIMIoAYwAn6z6hzPbXlxQC2MkECBFJCWg0A2eerlzV+WwWr3uuAD1/oe/So/J5FmjG2Abi1HlYrpra27RNobtkqh7Y6tAY26xaplq/aZM9tisVs5wwbXNzzORnBHQijCz4gfoLeFfGEGxrT0XuuGSpDdb2bq/745ur/ljeMpOd+Hbq3/9oGE5JvcPCL3IT1NLVThobLI209Hy1OoWLXIUcgVxH3iYRT1yJNAal5LYSkx6UYQcs/sYz/4mHPQnQ8602TDAYBPp+CFZJmJJT9BLU12XnfwJnpslwF/g3iOemykaGu5wAAAAASUVORK5CYII="],
       a = 0;
     n.forEach(function(t) {
       var e = new Image;
@@ -15214,7 +15214,7 @@ webpackJsonp([1, 0], [function(t, e, r) {
     u = a.TweenMax,
     h = function() {
       function t(e) {
-        (0, o["default"])(this, t), this.options = e, this.container = new s.Container, this.bgColorImg = "static/js/img/3.png", this.left = null, this.center = null, this.right = null, this.rightTop = null, this.speed = [60, -40, 30, -40], this.startXArr = []
+        (0, o["default"])(this, t), this.options = e, this.container = new s.Container, this.bgColorImg = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAABW1JREFUaAXtmlGS2zgMRC3XHCKnyOX3fnbYbD0DBClL3t2PSSqsihsCGg2QlD2Sou3Hj5//PJ+3fTwa3ts/4ZUBV6gx5m/b/fZ8Pm5CDWyhx/v8nZTgmP8VovApouOaCAccG3+0w/v9cRNqYAs1zuJzvVE/FngvYNX++WXxbk8fjxa8t7kIV4OYUKNi9mUbHrWRrxNXTjTPQhgVuTch93i/fclxdagBiisHm0aqzhn/LH6uFwvdJ3LUCM0iCA+s8SuNrXLxXcmnl4of7UhNrsc0BCqe7cqvx3DBmo8fzPH97K6Sv9/x34l8tz37uyPfckd0icJlCqhGn/uBMNtMIvvMcY7S0AHJyVjzFcOXedjEXMvXVfiGn1+Kgrfbtje0odUw7G2zDZoUcR3vlB5SUXEpbn01lHOy3dPSBzFQIdvtWqsKRZ6aUJhm5kaCa0uiWQ9bqMEkXNz6W9J3rVjI9/n0Lhx2JJpwYQTB2kjlu9n86YaVFyPs3Ijj40Qj59zaf7XUeJ69isVppYkwGVDS2BHXd6lHFG22dYXZdq1VPfuCrxpdUKJtYAvNBduOqGkTlOTt9jH2eGo19i7O+R7fEX8H0LMfnxvBpyN4gdnXCeWDXr2r7te7uH9Hgj8swGuSTtw2r4LRE2KySSHMYQVxe5E4ylgXJjdqHrnzQpfvSJZ1o/KwA+0SsB3pbOT+xHeA9ok5Dk+y7bnXoenYHhcrcqgDKpLtYM7Wh3/ZoQuzPQvLQ8NC248XxmKwKLMGN3TCbMPM+r2bIyIJYBbLNvFzzJPP9jpTd4Aawmyv2O1WV3dZTsCmSfnxIZiR2BH/0/iqweyr/WT9LwdNxxZqZKIZ9dMT5TTzhPCJix164ZvjKqubpr38hfrRT98RDrnzAuV3czA+Rc5/sCseiswLMdanF7Cr7c16qV7SHAqz/SIUgwaF2YaWNbJNPOfIFgdc8cmbsfz8ZmHI+DjOmAvLTxPkVISTNbL9KT9yy0QicM3694Wv6V9nsX/XM74p88+ZCH8dryw0XOHqnzTgZBtu9sk+G2gd5ef48B1RgOujVRFiV6+d4IHSzHatpxi+Vf13vj4RZiZitt8lrmLkgitO9tXGlYcPXtbCBuEKhx0h+QgRAMXL9lHekZ9c8FM98oT/65edKwJhtplI9mWb+BnmnGwrb/j/EQW53lmLtqm/brbE3VrDz47ic40EZl+2idd61CaunKtjOLUQAOdCatwTUAFs4WrUxpi0UKMuRK3XTtzG0l3ZOb9PBOFI2m/pmkRu0jzvQgu1gW3+3Lh3adRwpj7xg3P+1nf58bC+eV5MVMhtE2HWCmF7BeaJMUFw5LvgszUYcXwuLD85cz2aAsXI9twPWv25FkWVhg0GUdF5vG/sXeHQUg3GmR68GfcdmQPhyYXCe80iF1RWtq80nvnYYOiVn192QphtJawGgsJsw80a2Saec2SLA6745M04/Gqtm6HYnHzuIRdURrarAjHwjB/5ZUci8LtZfSJ6+4E3IMC+FvurFlfjulQwV+ilAFcLQ60j/Zrzjr+fWt4YE3l6KBnsvHEr2z5fxN2HK1z5GNLn/ZTsw/4vuL+LQnMVJY3Pqx2Tc9m84tjg3Ni4MPnqVdzVREeNMT8vfPmy61pDjR9cc7xiTK7yySU+tmFdOKvTb2y08qtaPt4rqiGaB5tnN4XZRiD7bPNmkBJ5XmvUsyhxAqWiB3hG2zrwQz2eXYFiYVsjuMppOxIrJFGud7p8C+FDyPFefef6xRbFNRRn+IllPJLV5HI9HZtvPedlGyUj2qAmJFvYJsIqxiQgqqjftXJ32OP7VxIaC3JUX1vyokQ9eKAf2cbE3SiPXWEFehLu+xejgYH1EoGLwgAAAABJRU5ErkJggg==", this.left = null, this.center = null, this.right = null, this.rightTop = null, this.speed = [60, -40, 30, -40], this.startXArr = []
       }
       return t.prototype.init = function() {
         this.left = this.createTriangle(1210, 438), this.container.addChild(this.left), this.center = this.createTriangle(600, 218), this.container.addChild(this.center), this.right = this.createTriangle(987, 358), this.container.addChild(this.right), this.rightTop = this.createTriangle(504, 183), this.container.addChild(this.rightTop), this.rightTop.rotation = Math.PI, this.left.x = .05 * -this.options.w, this.left.y = this.options.h - 219, this.center.x = .3 * this.options.w, this.center.y = this.options.h - 109, this.right.x = .55 * this.options.w, this.right.y = this.options.h - 179, this.rightTop.x = .8 * this.options.w, this.rightTop.y = 91.5
@@ -15473,7 +15473,7 @@ webpackJsonp([1, 0], [function(t, e, r) {
           inner: 110,
           outside: 125,
           listNumber: 10,
-          img: "static/js/img/1.png"
+          img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAJxJREFUGBmNkDEOAUEYhWdEaIRKg9JlnETvHg7gJC6jpKEimiWZ8X2zu80oeMmXN5l9ebP/H0NRjpgMOvc2Q2o9GighAyMYd46FFzSdpyEHmwxNYQ4zUHe4wQMag7bZZGgNS1CX1krru25cHI5hZ2C7CXvsCr4WbftSdoxKDmPrBFZQP33i7gxPQ67A6fxx1Xs/jN/S3+txNej3wj8E8i4O/IZ0gQAAAABJRU5ErkJggg=="
         }, r.number = 300, r
       }
       return (0, h["default"])(e, t), e.prototype.init = function() {
@@ -15537,13 +15537,13 @@ webpackJsonp([1, 0], [function(t, e, r) {
           outside: 130,
           maxOutside: !0,
           listNumber: 10,
-          img: "static/js/img/1.png"
+          img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAJxJREFUGBmNkDEOAUEYhWdEaIRKg9JlnETvHg7gJC6jpKEimiWZ8X2zu80oeMmXN5l9ebP/H0NRjpgMOvc2Q2o9GighAyMYd46FFzSdpyEHmwxNYQ4zUHe4wQMag7bZZGgNS1CX1krru25cHI5hZ2C7CXvsCr4WbftSdoxKDmPrBFZQP33i7gxPQ67A6fxx1Xs/jN/S3+txNej3wj8E8i4O/IZ0gQAAAABJRU5ErkJggg=="
         }), this.inner = new h["default"](400, {
           inner: 40,
           outside: 85,
           listNumber: 10,
           lineNumber: 40,
-          img: "static/js/img/2.png"
+          img: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAASpJREFUGBmNUDFOw0AQ3HUOJ5ZMggQUCS4ooEmFRJXOn0gk+EmqxAW8gheQjhe4Cw1SGmiIBEVQClPEsiXjy/mWXQchSrZYnXbnZmYHgYuIMIoAYwAn6z6hzPbXlxQC2MkECBFJCWg0A2eerlzV+WwWr3uuAD1/oe/So/J5FmjG2Abi1HlYrpra27RNobtkqh7Y6tAY26xaplq/aZM9tisVs5wwbXNzzORnBHQijCz4gfoLeFfGEGxrT0XuuGSpDdb2bq/745ur/ljeMpOd+Hbq3/9oGE5JvcPCL3IT1NLVThobLI209Hy1OoWLXIUcgVxH3iYRT1yJNAal5LYSkx6UYQcs/sYz/4mHPQnQ8602TDAYBPp+CFZJmJJT9BLU12XnfwJnpslwF/g3iOemykaGu5wAAAAASUVORK5CYII="
         }, 1205417, 3678378)
       }
       return t.prototype.init = function() {
